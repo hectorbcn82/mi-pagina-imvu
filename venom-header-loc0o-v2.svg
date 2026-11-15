@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="venomHeaderSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 730" width="100%" height="730" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Fondo atmosférico abisal con profundidad cinematográfica -->
+    <radialGradient id="abyssBg" cx="50%" cy="48%" r="74%">
+      <stop offset="0%" stop-color="#202536"/>
+      <stop offset="46%" stop-color="#0b0d14"/>
+      <stop offset="85%" stop-color="#040508"/>
+      <stop offset="100%" stop-color="#010102"/>
+    </radialGradient>
+
+    <radialGradient id="rimCold" cx="22%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#5878cc" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="rimCrimson" cx="78%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#9e1933" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Degradado inferior para integrar el título inferior con contraste -->
+    <linearGradient id="bottomFade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020204" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#020204" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#010102" stop-opacity="0.98"/>
+    </linearGradient>
+
+    <!-- Textura orgánica líquida -->
+    <linearGradient id="symbioteMuscle" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#353c54"/>
+      <stop offset="22%" stop-color="#151824"/>
+      <stop offset="58%" stop-color="#06070a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+
+    <linearGradient id="topTendrilGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b3145"/>
+      <stop offset="45%" stop-color="#0d0f17"/>
+      <stop offset="100%" stop-color="#030305"/>
+    </linearGradient>
+
+    <!-- Brillos húmedos especulares intensos (Wet Look) -->
+    <linearGradient id="liquidSpec" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dce6ff" stop-opacity="0.9"/>
+      <stop offset="38%" stop-color="#6d81ba" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="fiberHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b5c6f5" stop-opacity="0.8"/>
+      <stop offset="55%" stop-color="#475580" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Emblema circular blanco/plateado metálico -->
+    <linearGradient id="ringMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="45%" stop-color="#d8e0f5"/>
+      <stop offset="85%" stop-color="#8b96b5"/>
+      <stop offset="100%" stop-color="#4e566e"/>
+    </linearGradient>
+
+    <!-- Lengua hiperrealista húmeda -->
+    <linearGradient id="tongueCinema" x1="0%" y1="0%" x2="100%" y2="85%">
+      <stop offset="0%" stop-color="#ff2950"/>
+      <stop offset="35%" stop-color="#bd0f2f"/>
+      <stop offset="75%" stop-color="#6e0418"/>
+      <stop offset="100%" stop-color="#2e0109"/>
+    </linearGradient>
+
+    <!-- Garras afiladas tipo marfil/acero -->
+    <linearGradient id="razorClaw" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#dce2f2"/>
+      <stop offset="85%" stop-color="#7c859e"/>
+      <stop offset="100%" stop-color="#383d4d"/>
+    </linearGradient>
+
+    <!-- Dientes de aguja translúcidos -->
+    <linearGradient id="fangTooth" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#e3e7f2"/>
+      <stop offset="92%" stop-color="#a2abC2" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#6b7287" stop-opacity="0.65"/>
+    </linearGradient>
+
+    <!-- Degradado metálico unificado para los títulos -->
+    <linearGradient id="titleMetal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="48%" stop-color="#e4eaf7"/>
+      <stop offset="52%" stop-color="#9aa6c4"/>
+      <stop offset="100%" stop-color="#dce4f7"/>
+    </linearGradient>
+
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d40819" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#ff1f35" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#ff1f35" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#d40819" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Filtros cinematográficos -->
+    <filter id="heavyDropShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.96"/>
+    </filter>
+
+    <filter id="titleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.95"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#5878cc" flood-opacity="0.4"/>
+    </filter>
+
+    <filter id="eyeFlare" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="4.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="organicTexture" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.032" numOctaves="3" seed="11" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <clipPath id="emblemCircleClip">
+      <circle cx="720" cy="325" r="218"/>
+    </clipPath>
+
+    <style>
+      #venomHeaderSvg {
+        cursor: crosshair;
+        user-select: none;
+      }
+      .emblem-aura {
+        transform-origin: 720px 325px;
+        animation: auraPulse 5.2s ease-in-out infinite alternate;
+      }
+      .tendril-bg-l {
+        transform-origin: 480px 325px;
+        animation: tendrilWaveL 6.5s ease-in-out infinite alternate;
+      }
+      .tendril-fg-l {
+        transform-origin: 500px 350px;
+        animation: tendrilWhipL 4.8s ease-in-out infinite alternate;
+      }
+      .tendril-bg-r {
+        transform-origin: 960px 325px;
+        animation: tendrilWaveR 6.7s ease-in-out infinite alternate;
+      }
+      .tendril-fg-r {
+        transform-origin: 940px 350px;
+        animation: tendrilWhipR 5.0s ease-in-out infinite alternate;
+      }
+      /* Tentáculos superiores movibles alrededor de LoC0o */
+      .title-tendril-l1 {
+        transform-origin: 540px 68px;
+        animation: titleWhipL1 4.2s ease-in-out infinite alternate;
+      }
+      .title-tendril-l2 {
+        transform-origin: 560px 82px;
+        animation: titleWhipL2 5.4s ease-in-out infinite alternate;
+      }
+      .title-tendril-r1 {
+        transform-origin: 900px 68px;
+        animation: titleWhipR1 4.4s ease-in-out infinite alternate;
+      }
+      .title-tendril-r2 {
+        transform-origin: 880px 82px;
+        animation: titleWhipR2 5.6s ease-in-out infinite alternate;
+      }
+      .title-tendril-top {
+        transform-origin: 720px 42px;
+        animation: titleCrestWave 4.8s ease-in-out infinite alternate;
+      }
+      .predator-body {
+        transform-origin: 720px 440px;
+        animation: beastCrouch 4.0s ease-in-out infinite alternate;
+      }
+      .predator-head {
+        transform-origin: 720px 210px;
+        animation: headSnarl 4.0s ease-in-out infinite alternate;
+      }
+      .serpent-tongue {
+        transform-origin: 720px 252px;
+        animation: tongueLash 3.2s ease-in-out infinite alternate;
+      }
+      .saliva-1 {
+        animation: droolFall 2.8s cubic-bezier(0.55, 0.05, 0.75, 0.2) infinite;
+      }
+      .saliva-2 {
+        animation: droolFall 3.4s cubic-bezier(0.55, 0.05, 0.75, 0.2) infinite 1.3s;
+      }
+      /* Estilo tipográfico idéntico para arriba y abajo */
+      .hero-title {
+        font-family: 'Impact', 'Arial Black', 'Segoe UI', sans-serif;
+        font-weight: 900;
+        letter-spacing: 18px;
+      }
+      .hero-subtitle {
+        font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+        font-weight: 700;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+      }
+
+      @keyframes titleWhipL1 {
+        0% { transform: rotate(0deg) scaleX(1); }
+        50% { transform: rotate(-4.5deg) scaleX(1.04); }
+        100% { transform: rotate(3.2deg) scaleX(0.97); }
+      }
+      @keyframes titleWhipL2 {
+        0% { transform: rotate(0deg) translateY(0px); }
+        100% { transform: rotate(5deg) translateY(-4px); }
+      }
+      @keyframes titleWhipR1 {
+        0% { transform: rotate(0deg) scaleX(1); }
+        50% { transform: rotate(4.5deg) scaleX(1.04); }
+        100% { transform: rotate(-3.2deg) scaleX(0.97); }
+      }
+      @keyframes titleWhipR2 {
+        0% { transform: rotate(0deg) translateY(0px); }
+        100% { transform: rotate(-5deg) translateY(-4px); }
+      }
+      @keyframes titleCrestWave {
+        0% { transform: skewX(-2deg) scaleY(1); }
+        100% { transform: skewX(2.5deg) scaleY(1.06); }
+      }
+      @keyframes auraPulse {
+        0% { transform: scale(0.985) rotate(-0.6deg); opacity: 0.9; }
+        100% { transform: scale(1.018) rotate(0.6deg); opacity: 1; }
+      }
+      @keyframes tendrilWaveL {
+        0% { transform: rotate(0deg) translateX(0px); }
+        100% { transform: rotate(-3.8deg) translateX(-10px); }
+      }
+      @keyframes tendrilWhipL {
+        0% { transform: rotate(0deg) translateY(0px); }
+        100% { transform: rotate(3.2deg) translateY(-6px); }
+      }
+      @keyframes tendrilWaveR {
+        0% { transform: rotate(0deg) translateX(0px); }
+        100% { transform: rotate(3.8deg) translateX(10px); }
+      }
+      @keyframes tendrilWhipR {
+        0% { transform: rotate(0deg) translateY(0px); }
+        100% { transform: rotate(-3.2deg) translateY(-6px); }
+      }
+      @keyframes beastCrouch {
+        0% { transform: scaleY(1) translateY(0px); }
+        100% { transform: scaleY(1.022) translateY(-5px); }
+      }
+      @keyframes headSnarl {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-3px) rotate(-0.9deg); }
+        100% { transform: translateY(1.5px) rotate(0.9deg); }
+      }
+      @keyframes tongueLash {
+        0% { transform: rotate(-3.5deg) skewX(0deg) scale(1); }
+        50% { transform: rotate(5deg) skewX(-6deg) scale(1.05); }
+        100% { transform: rotate(-2deg) skewX(3.5deg) scale(0.97); }
+      }
+      @keyframes droolFall {
+        0% { transform: translateY(0px) scaleY(0.5); opacity: 0; }
+        20% { opacity: 0.92; }
+        85% { transform: translateY(52px) scaleY(1.45); opacity: 0.78; }
+        100% { transform: translateY(72px) scaleY(0.4); opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <!-- CAPA 1: Escenario Nocturno y Luces Rim Light -->
+  <rect width="1440" height="730" fill="url(#abyssBg)"/>
+  <g id="parallaxLights">
+    <rect width="1440" height="730" fill="url(#rimCold)"/>
+    <rect width="1440" height="730" fill="url(#rimCrimson)"/>
+  </g>
+
+  <!-- CAPA 2: Tentáculos de Simbionte con Parallax Interactivo -->
+  <g id="parallaxTentacles" filter="url(#heavyDropShadow)">
+    <!-- Izquierda -->
+    <g class="tendril-bg-l">
+      <path d="M 520 245 C 365 185, 220 265, 55 165 C -5 128, -45 162, -75 138 C 5 205, 95 212, 215 255 C 105 282, 25 348, -40 334 C 75 378, 195 322, 335 315 C 420 310, 480 335, 535 352 Z" fill="#07080d"/>
+      <path d="M 502 242 C 368 195, 225 265, 72 174 C 215 248, 355 210, 502 242 Z" fill="url(#liquidSpec)"/>
+      <path d="M 110 225 Q 285 275 495 295" fill="none" stroke="#6c80ba" stroke-width="2" opacity="0.6" filter="url(#organicTexture)"/>
+    </g>
+    <path class="tendril-fg-l" d="M 530 425 C 385 465, 245 425, 95 508 C 25 548, -25 518, -60 558 C 45 565, 145 538, 255 495 C 365 452, 465 492, 555 466 Z" fill="#050609"/>
+
+    <!-- Derecha -->
+    <g class="tendril-bg-r">
+      <path d="M 920 245 C 1075 185, 1220 265, 1385 165 C 1445 128, 1485 162, 1515 138 C 1435 205, 1345 212, 1225 255 C 1335 282, 1415 348, 1480 334 C 1365 378, 1245 322, 1105 315 C 1020 310, 960 335, 905 352 Z" fill="#07080d"/>
+      <path d="M 938 242 C 1072 195, 1215 265, 1368 174 C 1225 248, 1085 210, 938 242 Z" fill="url(#liquidSpec)"/>
+      <path d="M 1330 225 Q 1155 275 945 295" fill="none" stroke="#6c80ba" stroke-width="2" opacity="0.6" filter="url(#organicTexture)"/>
+    </g>
+    <path class="tendril-fg-r" d="M 910 425 C 1055 465, 1195 425, 1345 508 C 1415 548, 1465 518, 1500 558 C 1395 565, 1295 538, 1185 495 C 1075 452, 975 492, 885 466 Z" fill="#050609"/>
+  </g>
+
+  <!-- CAPA 3: Texto Superior "LoC0o" con Tentáculos Movibles y Mismo Estilo que los Inferiores -->
+  <g id="topBrandSection" filter="url(#titleGlow)">
+    <!-- Tentáculos orgánicos del simbionte naciendo y moviéndose alrededor de LoC0o -->
+    <g>
+      <!-- Tentáculos izquierdos -->
+      <path class="title-tendril-l1" d="M 555 58 C 480 35, 405 72, 315 38 C 375 74, 445 64, 535 76 Z" fill="url(#topTendrilGrad)"/>
+      <path class="title-tendril-l1" d="M 545 60 C 480 42, 405 72, 325 42 C 395 66, 465 56, 545 60 Z" fill="url(#liquidSpec)"/>
+      <path class="title-tendril-l2" d="M 565 82 C 495 95, 430 82, 355 108 C 425 104, 485 92, 560 90 Z" fill="#080a0f"/>
+
+      <!-- Tentáculos derechos -->
+      <path class="title-tendril-r1" d="M 885 58 C 960 35, 1035 72, 1125 38 C 1065 74, 995 64, 905 76 Z" fill="url(#topTendrilGrad)"/>
+      <path class="title-tendril-r1" d="M 895 60 C 960 42, 1035 72, 1115 42 C 1045 66, 975 56, 895 60 Z" fill="url(#liquidSpec)"/>
+      <path class="title-tendril-r2" d="M 875 82 C 945 95, 1010 82, 1085 108 C 1015 104, 955 92, 880 90 Z" fill="#080a0f"/>
+
+      <!-- Zarcillos finos superiores entrelazados sobre las letras -->
+      <path class="title-tendril-top" d="M 615 34 Q 670 16 720 32 T 825 30" fill="none" stroke="#53618c" stroke-width="2.2" opacity="0.7" stroke-linecap="round"/>
+      <path class="title-tendril-top" d="M 645 92 Q 720 106 795 92" fill="none" stroke="#181c29" stroke-width="3.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Título "LoC0o" con exactamente el mismo estilo tipográfico, tamaño y degradado que "WE ARE VENOM" -->
+    <text x="720" y="88" text-anchor="middle" font-size="68" fill="url(#titleMetal)" class="hero-title">
+      LoC0o
+    </text>
+
+    <!-- Línea divisoria luminosa idéntica a la inferior -->
+    <rect x="370" y="106" width="700" height="2.5" fill="url(#accentLine)"/>
+  </g>
+
+  <!-- CAPA 4: Emblema Circular con Patas Geométricas -->
+  <g id="parallaxEmblem" filter="url(#heavyDropShadow)">
+    <g class="emblem-aura">
+      <circle cx="720" cy="325" r="222" fill="#06070c" stroke="url(#ringMetal)" stroke-width="8"/>
+      <circle cx="720" cy="325" r="198" fill="none" stroke="url(#ringMetal)" stroke-width="3.5" opacity="0.55"/>
+
+      <g clip-path="url(#emblemCircleClip)" fill="url(#ringMetal)">
+        <path d="M 648 220 L 575 115 L 622 105 L 676 205 Z"/>
+        <path d="M 792 220 L 865 115 L 818 105 L 764 205 Z"/>
+        <path d="M 608 252 L 495 170 L 475 228 L 588 280 Z"/>
+        <path d="M 832 252 L 945 170 L 965 228 L 852 280 Z"/>
+        <path d="M 588 312 L 478 280 L 478 336 L 582 346 Z"/>
+        <path d="M 852 312 L 962 280 L 962 336 L 858 346 Z"/>
+        <path d="M 598 384 L 498 420 L 535 485 L 622 416 Z"/>
+        <path d="M 842 384 L 942 420 L 905 485 L 818 416 Z"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- CAPA 5: Cuerpo Hipermusculoso y Agachado de Venom -->
+  <g id="parallaxBody" filter="url(#heavyDropShadow)">
+    <g class="predator-body">
+      <!-- PIERNA IZQUIERDA -->
+      <g>
+        <path d="M 622 352
+                 C 555 316, 472 326, 464 386
+                 C 456 442, 518 496, 612 512
+                 L 632 538 L 552 542 L 584 516
+                 C 528 492, 498 450, 518 412
+                 C 542 376, 602 389, 638 416 Z"
+              fill="url(#symbioteMuscle)" stroke="#252c3f" stroke-width="2.2"/>
+        <path d="M 484 372 C 508 336, 568 332, 606 356 C 564 350, 520 358, 484 372 Z" fill="url(#liquidSpec)"/>
+        <path d="M 495 412 C 522 442, 565 466, 608 476 C 560 472, 518 452, 495 412 Z" fill="#8294c7" opacity="0.55"/>
+        <path d="M 525 386 Q 558 376, 595 392" fill="none" stroke="#9eb0e0" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+        <path d="M 476 409 Q 505 449, 568 486" fill="none" stroke="#4d5b82" stroke-width="2.4" opacity="0.65" stroke-linecap="round"/>
+        <polygon points="552,542 538,548 556,547" fill="#dce4f7"/>
+        <polygon points="572,541 560,549 578,547" fill="#dce4f7"/>
+      </g>
+
+      <!-- PIERNA DERECHA -->
+      <g>
+        <path d="M 818 352
+                 C 885 316, 968 326, 976 386
+                 C 984 442, 922 496, 828 512
+                 L 808 538 L 888 542 L 856 516
+                 C 912 492, 942 450, 922 412
+                 C 898 376, 838 389, 802 416 Z"
+              fill="url(#symbioteMuscle)" stroke="#252c3f" stroke-width="2.2"/>
+        <path d="M 956 372 C 932 336, 872 332, 834 356 C 876 350, 920 358, 956 372 Z" fill="url(#liquidSpec)"/>
+        <path d="M 945 412 C 918 442, 875 466, 832 476 C 880 472, 922 452, 945 412 Z" fill="#8294c7" opacity="0.55"/>
+        <path d="M 915 386 Q 882 376, 845 392" fill="none" stroke="#9eb0e0" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+        <path d="M 964 409 Q 935 449, 872 486" fill="none" stroke="#4d5b82" stroke-width="2.4" opacity="0.65" stroke-linecap="round"/>
+        <polygon points="888,542 902,548 884,547" fill="#dce4f7"/>
+        <polygon points="868,541 880,549 862,547" fill="#dce4f7"/>
+      </g>
+
+      <!-- TORSO Y PECHO -->
+      <g>
+        <path d="M 615 238
+                 C 650 218, 790 218, 825 238
+                 L 844 352
+                 C 825 432, 770 472, 720 472
+                 C 670 472, 615 432, 596 352 Z"
+              fill="url(#symbioteMuscle)" stroke="#262e42" stroke-width="2.2"/>
+
+        <path d="M 622 248 C 648 232, 678 231, 695 242 C 672 244, 646 250, 622 248 Z" fill="url(#liquidSpec)"/>
+        <path d="M 818 248 C 792 232, 762 231, 745 242 C 768 244, 794 250, 818 248 Z" fill="url(#liquidSpec)"/>
+
+        <!-- Araña Blanca -->
+        <path d="M 720 288
+                 L 702 308 L 656 274 L 678 318 L 640 358 L 688 336
+                 L 704 388 L 720 354 L 736 388 L 752 336
+                 L 800 358 L 762 318 L 784 274 L 738 308 Z"
+              fill="#ffffff"/>
+        <path d="M 720 348 C 706 364, 704 392, 720 418 C 736 392, 734 364, 720 348 Z" fill="#9aa5c2"/>
+        <path d="M 706 316 L 720 332 L 734 316" fill="none" stroke="#151824" stroke-width="2.2"/>
+      </g>
+
+      <!-- BRAZO IZQUIERDO -->
+      <g>
+        <path d="M 625 234
+                 C 562 242, 528 291, 545 351
+                 C 560 404, 606 458, 665 511
+                 L 704 508
+                 C 662 441, 632 381, 622 324
+                 C 615 290, 625 260, 644 246 Z"
+              fill="url(#symbioteMuscle)" stroke="#2a3247" stroke-width="2.2"/>
+
+        <path d="M 556 282 C 570 254, 604 244, 624 254 C 600 266, 574 282, 556 282 Z" fill="url(#liquidSpec)"/>
+        <path d="M 548 324 C 556 298, 578 282, 598 280 C 580 294, 564 310, 548 324 Z" fill="url(#fiberHighlight)"/>
+        <path d="M 562 341 Q 592 398 652 484" fill="none" stroke="#a6b8eb" stroke-width="2.4" opacity="0.68" stroke-linecap="round"/>
+        <path d="M 582 318 Q 612 376, 672 471" fill="none" stroke="#697bb0" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+        <path d="M 555 371 Q 585 424, 638 494" fill="none" stroke="#455278" stroke-width="2.2" opacity="0.65" stroke-linecap="round"/>
+        <path d="M 602 338 Q 625 388, 685 481" fill="none" stroke="#9eb0e0" stroke-width="1.5" opacity="0.55" stroke-linecap="round"/>
+      </g>
+
+      <!-- BRAZO DERECHO -->
+      <g>
+        <path d="M 815 234
+                 C 878 242, 912 291, 895 351
+                 C 880 404, 834 458, 775 511
+                 L 736 508
+                 C 778 441, 808 381, 818 324
+                 C 825 290, 815 260, 796 246 Z"
+              fill="url(#symbioteMuscle)" stroke="#2a3247" stroke-width="2.2"/>
+
+        <path d="M 884 282 C 870 254, 836 244, 816 254 C 840 266, 866 282, 884 282 Z" fill="url(#liquidSpec)"/>
+        <path d="M 892 324 C 884 298, 862 282, 842 280 C 860 294, 876 310, 892 324 Z" fill="url(#fiberHighlight)"/>
+        <path d="M 878 341 Q 848 398, 788 484" fill="none" stroke="#a6b8eb" stroke-width="2.4" opacity="0.68" stroke-linecap="round"/>
+        <path d="M 858 318 Q 828 376, 768 471" fill="none" stroke="#697bb0" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+        <path d="M 885 371 Q 855 424, 802 494" fill="none" stroke="#455278" stroke-width="2.2" opacity="0.65" stroke-linecap="round"/>
+        <path d="M 838 338 Q 815 388, 755 481" fill="none" stroke="#9eb0e0" stroke-width="1.5" opacity="0.55" stroke-linecap="round"/>
+      </g>
+
+      <!-- MANOS Y GARRAS -->
+      <g>
+        <path d="M 650 501 C 638 521, 644 546, 665 558 L 714 554 C 720 531, 714 508, 698 496 Z" fill="#07090e" stroke="#364059" stroke-width="2"/>
+        <path d="M 656 512 C 668 504, 686 504, 698 512" fill="none" stroke="#a6b8eb" stroke-width="2" opacity="0.7" stroke-linecap="round"/>
+        <path d="M 652 531 C 642 551, 646 570, 658 580 C 655 564, 658 548, 664 536 Z" fill="url(#razorClaw)"/>
+        <path d="M 670 538 C 662 561, 670 582, 682 590 C 678 570, 678 552, 684 540 Z" fill="url(#razorClaw)"/>
+        <path d="M 690 536 C 686 558, 694 578, 706 584 C 700 566, 698 550, 702 536 Z" fill="url(#razorClaw)"/>
+        <path d="M 706 526 C 708 546, 715 562, 722 568 C 718 552, 714 538, 714 526 Z" fill="url(#razorClaw)"/>
+      </g>
+
+      <g>
+        <path d="M 790 501 C 802 521, 796 546, 775 558 L 726 554 C 720 531, 726 508, 742 496 Z" fill="#07090e" stroke="#364059" stroke-width="2"/>
+        <path d="M 784 512 C 772 504, 754 504, 742 512" fill="none" stroke="#a6b8eb" stroke-width="2" opacity="0.7" stroke-linecap="round"/>
+        <path d="M 788 531 C 798 551, 794 570, 782 580 C 785 564, 782 548, 776 536 Z" fill="url(#razorClaw)"/>
+        <path d="M 770 538 C 778 561, 770 582, 758 590 C 762 570, 762 552, 756 540 Z" fill="url(#razorClaw)"/>
+        <path d="M 750 536 C 754 558, 746 578, 734 584 C 740 566, 742 550, 738 536 Z" fill="url(#razorClaw)"/>
+        <path d="M 734 526 C 732 546, 725 562, 718 568 C 722 552, 726 538, 726 526 Z" fill="url(#razorClaw)"/>
+      </g>
+
+      <!-- CAPA 6: Cabeza Interactiva que Sigue el Cursor -->
+      <g id="interactiveHeadGroup">
+        <g class="predator-head">
+          <path d="M 720 140
+                   C 666 140, 640 174, 640 222
+                   C 640 263, 670 306, 720 316
+                   C 770 306, 800 263, 800 222
+                   C 800 174, 774 140, 720 140 Z"
+                fill="url(#symbioteMuscle)" stroke="#333d57" stroke-width="2.2"/>
+
+          <path d="M 674 162 C 696 146, 744 146, 766 162 C 744 154, 696 154, 674 162 Z" fill="url(#liquidSpec)"/>
+          <path d="M 656 184 C 668 166, 692 158, 712 163 C 692 170, 672 180, 656 184 Z" fill="#dce6ff" opacity="0.78"/>
+          <path d="M 784 184 C 772 166, 748 158, 728 163 C 748 170, 768 180, 784 184 Z" fill="#8294c7" opacity="0.45"/>
+          <path d="M 698 186 L 712 206 M 742 186 L 728 206" stroke="#8fa1d4" stroke-width="1.6" opacity="0.55" stroke-linecap="round"/>
+
+          <!-- Ojos Interactivos -->
+          <g id="interactiveEyes" filter="url(#eyeFlare)">
+            <path d="M 650 206 C 660 173, 694 180, 714 214 C 702 230, 680 234, 660 224 C 650 220, 647 213, 650 206 Z" fill="#ffffff"/>
+            <path d="M 664 190 L 676 203 M 680 186 L 690 200" stroke="#08090e" stroke-width="1.8" stroke-linecap="round"/>
+
+            <path d="M 790 206 C 780 173, 746 180, 726 214 C 738 230, 760 234, 780 224 C 790 220, 793 213, 790 206 Z" fill="#ffffff"/>
+            <path d="M 776 190 L 764 203 M 760 186 L 750 200" stroke="#08090e" stroke-width="1.8" stroke-linecap="round"/>
+          </g>
+
+          <!-- Fauces y dentadura -->
+          <path d="M 650 232 C 684 253, 756 253, 790 232 C 784 280, 756 308, 720 308 C 684 308, 656 280, 650 232 Z" fill="#1f0208"/>
+          <path d="M 650 232 C 684 253, 756 253, 790 232 C 782 242, 754 256, 720 256 C 686 256, 658 242, 650 232 Z" fill="#8f0d26"/>
+
+          <g fill="url(#fangTooth)">
+            <polygon points="656,236 663,262 670,242"/>
+            <polygon points="672,243 680,274 688,248"/>
+            <polygon points="690,249 698,278 706,252"/>
+            <polygon points="708,253 715,282 720,254"/>
+            <polygon points="720,254 725,282 732,253"/>
+            <polygon points="734,252 742,278 750,249"/>
+            <polygon points="752,248 760,274 768,243"/>
+            <polygon points="770,242 777,262 784,236"/>
+          </g>
+
+          <g fill="url(#fangTooth)">
+            <polygon points="666,270 673,248 680,282"/>
+            <polygon points="682,284 690,256 698,293"/>
+            <polygon points="742,293 750,256 758,284"/>
+            <polygon points="760,282 767,248 774,270"/>
+          </g>
+
+          <!-- Saliva -->
+          <path d="M 680 274 L 682 290" stroke="#ffffff" stroke-width="1.2" opacity="0.65" stroke-linecap="round"/>
+          <path d="M 760 274 L 758 290" stroke="#ffffff" stroke-width="1.2" opacity="0.65" stroke-linecap="round"/>
+          <ellipse class="saliva-1" cx="680" cy="274" rx="2.2" ry="5" fill="#ffffff"/>
+          <ellipse class="saliva-2" cx="760" cy="274" rx="2.2" ry="5" fill="#ffffff"/>
+
+          <!-- Lengua Serpenteante -->
+          <g class="serpent-tongue">
+            <path d="M 712 262
+                     C 716 292, 750 304, 796 296
+                     C 842 288, 864 260, 848 232
+                     C 836 214, 808 214, 816 194
+                     C 820 182, 836 183, 844 188
+                     C 832 174, 806 180, 802 198
+                     C 798 216, 824 226, 830 244
+                     C 834 262, 810 276, 776 274
+                     C 746 273, 734 262, 730 254 Z"
+                  fill="url(#tongueCinema)" stroke="#3d020d" stroke-width="1.8"/>
+            <path d="M 722 264 C 750 284, 806 284, 836 254" fill="none" stroke="#ff9eb0" stroke-width="1.8" opacity="0.7" stroke-linecap="round"/>
+            <path d="M 812 210 C 822 220, 836 232, 842 246" fill="none" stroke="#ffc2cd" stroke-width="1.2" opacity="0.55" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- CAPA 7: Degradado Inferior y Título Integrado debajo de la Composición -->
+  <rect x="0" y="520" width="1440" height="210" fill="url(#bottomFade)"/>
+
+  <g id="titleSection" filter="url(#titleGlow)">
+    <rect x="370" y="586" width="700" height="2.5" fill="url(#accentLine)"/>
+
+    <text x="720" y="656" text-anchor="middle" font-size="68" fill="url(#titleMetal)" class="hero-title">
+      WE ARE VENOM
+    </text>
+
+    <text x="720" y="694" text-anchor="middle" font-size="16" fill="#9aa6c4" class="hero-subtitle">
+      EL SIMBIONTE HA LLEGADO
+    </text>
+  </g>
+
+  <!-- Script de Interactividad Fluida con el Ratón -->
+  <script type="application/ecmascript"><![CDATA[
+    (function() {
+      const svg = document.getElementById('venomHeaderSvg');
+      const tentacles = document.getElementById('parallaxTentacles');
+      const emblem = document.getElementById('parallaxEmblem');
+      const body = document.getElementById('parallaxBody');
+      const head = document.getElementById('interactiveHeadGroup');
+      const eyes = document.getElementById('interactiveEyes');
+      const lights = document.getElementById('parallaxLights');
+      const topBrand = document.getElementById('topBrandSection');
+
+      let targetX = 0, targetY = 0;
+      let currentX = 0, currentY = 0;
+
+      function onMove(clientX, clientY) {
+        const rect = svg.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const normX = ((clientX - rect.left) / rect.width - 0.5) * 2;
+        const normY = ((clientY - rect.top) / rect.height - 0.5) * 2;
+        targetX = Math.max(-1, Math.min(1, normX));
+        targetY = Math.max(-1, Math.min(1, normY));
+      }
+
+      window.addEventListener('mousemove', function(e) {
+        onMove(e.clientX, e.clientY);
+      }, { passive: true });
+
+      window.addEventListener('touchmove', function(e) {
+        if (e.touches && e.touches.length > 0) {
+          onMove(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      document.addEventListener('mouseleave', function() {
+        targetX = 0;
+        targetY = 0;
+      });
+
+      function animate() {
+        currentX += (targetX - currentX) * 0.08;
+        currentY += (targetY - currentY) * 0.08;
+
+        tentacles.setAttribute('transform',
+          `translate(${(-currentX * 26).toFixed(2)}, ${(-currentY * 16).toFixed(2)}) rotate(${(currentX * 1.4).toFixed(2)}, 720, 325)`
+        );
+
+        emblem.setAttribute('transform',
+          `translate(${(-currentX * 14).toFixed(2)}, ${(-currentY * 10).toFixed(2)})`
+        );
+
+        body.setAttribute('transform',
+          `translate(${(currentX * 10).toFixed(2)}, ${(currentY * 6).toFixed(2)})`
+        );
+
+        head.setAttribute('transform',
+          `translate(${(currentX * 16).toFixed(2)}, ${(currentY * 12).toFixed(2)}) rotate(${(currentX * 5.5).toFixed(2)}, 720, 230)`
+        );
+
+        eyes.setAttribute('transform',
+          `translate(${(currentX * 4.5).toFixed(2)}, ${(currentY * 3.5).toFixed(2)})`
+        );
+
+        lights.setAttribute('transform',
+          `translate(${(currentX * 30).toFixed(2)}, ${(currentY * 20).toFixed(2)})`
+        );
+
+        topBrand.setAttribute('transform',
+          `translate(${(currentX * 8).toFixed(2)}, ${(currentY * 5).toFixed(2)})`
+        );
+
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    })();
+  ]]></script>
+</svg>
