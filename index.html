@@ -75,13 +75,16 @@
   }
 }    
     
-    .imvu-banner {
+.imvu-banner {
+  width: 100%;
   height: 180px;
-  background-color: #252525;
-  background-image: url('Banner LoC0o.svg'); /* <-- Añade esto con el nombre exacto de tu imagen */
-  background-size: cover;
+  background-color: #161616; /* Mismo color de fondo que la tarjeta para que no se noten bordes */
+  background-image: url('Banner LoC0o.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
-    }
+  border-radius: 15px 15px 0 0;
+}
 
     .imvu-avatar {
       width: 160px;
