@@ -83,14 +83,14 @@
 /* Contenedor central: 3 botones izq + Avatar centro + 3 botones der */
 .imvu-profile-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly; /* Reparte el espacio por igual entre los bordes, los botones y el avatar */
   align-items: center;
-  gap: 20px;               /* Espacio entre las columnas de botones y tu foto */
-  margin-top: -85px;       /* Sube todo el conjunto para que la foto siga montada sobre el banner */
+  margin-top: -85px;
   position: relative;
   z-index: 5;
   padding: 0 15px;
 }
+
 
 /* Columnas verticales de 3 botones cada una */
 .imvu-btn-col {
