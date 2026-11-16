@@ -54,40 +54,22 @@
     }
     .imvu-btn:hover { background: #fff; color: #000; }
 
-    /* Contenedor del recuadro de video */
-.yt-card {
-  position: relative;
-  display: block;
-  max-width: 460px;
+    /* Marco redondeado para el reproductor de YouTube */
+.imvu-yt-box {
+  width: 100%;
+  max-width: 560px; /* Ajusta este ancho si lo quieres más grande (ej. 700px) */
   margin: 20px auto;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #2e2e2e;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  background: #000;
 }
-.yt-card img {
+
+.imvu-yt-box iframe {
   width: 100%;
+  height: 315px; /* Ajusta la altura proporcional al ancho (ej. 400px si pones 700px) */
   display: block;
-  filter: brightness(80%);
-  transition: filter 0.2s, transform 0.2s;
-}
-.yt-card:hover img {
-  filter: brightness(100%);
-  transform: scale(5.02);
-}
-.yt-play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 0, 0, 0.85);
-  color: #fff;
-  width: 60px;
-  height: 40px;
-  border-radius: 10px;
-  line-height: 40px;
-  font-size: 18px;
-  text-align: center;
 }
   </style>
 </head>
@@ -110,10 +92,11 @@
     </a>
 
 
-  </div>
-  </a>
+<div class="imvu-yt-box">
+  <script src="https://www.youtube.com/player_api"></script>
+  <iframe allow="autoplay" width="100%" height="315" src="https://www.youtube.com/embed/tWR-YuUsPGo?modestbranding=1&fs=0&rel=0&hd=1&disablekb=0&showinfo=0&iv_load_policy=0&enablejsapi=1&autoplay=1&loop=1&controls=0&playlist=tWR-YuUsPGo" frameborder="0" allowfullscreen=""></iframe>
+</div>
 
-  </div>
 
 </body>
 </html>
