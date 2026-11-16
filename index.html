@@ -144,21 +144,21 @@ body {
   100% { filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.7)); }
 }
 
-  /* 1. Cursor principal (Cara de Venom) */
+  /* Cursor principal (Cara de Venom) */
   body, html {
     cursor: url('https://raw.githubusercontent.com/hectorbcn82/mi-pagina-imvu/refs/heads/main/Cursor%20Cara%20Venom.png'), auto !important;
   }
 
-  /* 2. Cursor sobre enlaces (Símbolo de Venom) */
-  a, a:hover, button {
+  /* Cursor sobre enlaces y botones (Logo de Venom) */
+  a, a:hover, button, .imvu-btn {
     cursor: url('https://raw.githubusercontent.com/hectorbcn82/mi-pagina-imvu/refs/heads/main/Cursor%20Logo%20Venom.png'), pointer !important;
   }
 
-  /* 3. Estilo de las telarañas del rastro */
+  /* Estilo de las telarañas del rastro */
   .rastro-telarana {
     position: fixed;
-    pointer-events: none; /* Evita que la telaraña bloquee los clics */
-    width: 28px;          /* Tamaño de la telaraña */
+    pointer-events: none;
+    width: 28px;
     height: 28px;
     z-index: 999999;
     transform: translate(-50%, -50%);
@@ -233,14 +233,13 @@ body {
     <iframe allow="autoplay" width="100%" height="315" src="https://www.youtube.com/embed/tWR-YuUsPGo?modestbranding=1&fs=0&rel=0&hd=1&disablekb=0&showinfo=0&iv_load_policy=0&enablejsapi=1&autoplay=1&loop=1&controls=0&playlist=tWR-YuUsPGo" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
-    <script type="text/javascript">
+<script>
   (function() {
-    var urlTelarana = 'https://raw.githubusercontent.com/hectorbcn82/mi-pagina-imvu/refs/heads/main/Telara%C3%B1a%20Cursor.png';
+    var urlTelarana = 'Telara%C3%B1a%20Cursor.png';
     var ultimoTiempo = 0;
 
     document.addEventListener('mousemove', function(e) {
       var ahora = Date.now();
-      // Crea una telaraña cada 45 milisegundos para no saturar la página
       if (ahora - ultimoTiempo < 45) return;
       ultimoTiempo = ahora;
 
@@ -252,7 +251,6 @@ body {
 
       document.body.appendChild(web);
 
-      // Elimina la imagen tras 800ms para que el perfil no se ponga lento
       setTimeout(function() {
         if (web.parentNode) {
           web.parentNode.removeChild(web);
@@ -260,6 +258,7 @@ body {
       }, 800);
     });
   })();
+</script>
 </script>
 
 </body>
