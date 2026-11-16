@@ -144,10 +144,15 @@ body {
   100% { filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.7)); }
 }
 
-  /* Cursor con la cabeza de Venom compatible con IMVU */
-body, a, button, .imvu-wrapper, .imvu-btn {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='36' height='36' viewBox='0 0 100 100'><path d='M50,6 C22,6 10,28 14,56 C17,76 34,94 50,96 C66,94 83,76 86,56 C90,28 78,6 50,6 Z' fill='%2309090b' stroke='%23a855f7' stroke-width='3'/><path d='M22,36 C28,32 42,42 45,54 C36,56 23,49 20,41 Z' fill='%23ffffff'/><path d='M78,36 C72,32 58,42 55,54 C64,56 77,49 80,41 Z' fill='%23ffffff'/><path d='M25,64 Q50,82 75,64 Q64,88 50,88 Q36,88 25,64 Z' fill='%234c0519'/><path d='M28,66 L32,74 L36,68 L41,77 L45,69 L50,79 L55,69 L59,77 L64,68 L68,74 L72,66' fill='none' stroke='%23ffffff' stroke-width='2.5'/></svg>") 18 18, auto !important;
-}
+  /* Cursor normal en toda la página (Cara de Venom) */
+  body, html {
+    cursor: url('https://github.com/hectorbcn82/mi-pagina-imvu/blob/main/ArrowFarCursor.png'), auto !important;
+  }
+
+  /* Cursor al pasar sobre enlaces o botones (Símbolo de Venom) */
+  a, a:hover, button, input[type="submit"] {
+    cursor: url('https://github.com/hectorbcn82/mi-pagina-imvu/blob/main/ArrowCursor.png'), pointer !important;
+  }
 
 </style>
 </head>
