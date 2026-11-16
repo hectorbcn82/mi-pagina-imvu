@@ -80,39 +80,72 @@
   }
 }    
     
-    .imvu-avatar {
-      width: 160px;
-      height: 220px;
-      border-radius: 12px;
-      border: 2px solid #240e17;
-      margin-top: -55px;
-      background-color: #161616;
-      object-fit: cover;
-      animation: brilloVenomAvatar 3s ease-in-out infinite alternate;
-    }
+/* Contenedor central: 3 botones izq + Avatar centro + 3 botones der */
+.imvu-profile-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;               /* Espacio entre las columnas de botones y tu foto */
+  margin-top: -85px;       /* Sube todo el conjunto para que la foto siga montada sobre el banner */
+  position: relative;
+  z-index: 5;
+  padding: 0 15px;
+}
 
-    @keyframes brilloVenomAvatar {
-      0% {
-        box-shadow: 0 0 12px rgba(36, 14, 23, 0.7), 0 0 24px rgba(36, 14, 23, 0.5);
-      }
-      100% {
-        box-shadow: 0 0 22px rgba(36, 14, 23, 1), 0 0 42px rgba(36, 14, 23, 0.9);
-      }
-    }
-    .imvu-name { margin: 10px 0 5px; font-size: 22px; }
-    .imvu-bio { color: #aaa; font-size: 13px; margin-bottom: 20px; }
-    .imvu-btn {
-      text-decoration: none;
-      background: #222;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 12px;
-      margin: 0 5px;
-      border: 1px solid #333;
-      display: inline-block;
-    }
-    .imvu-btn:hover { background: #fff; color: #000; }
+/* Columnas verticales de 3 botones cada una */
+.imvu-btn-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;               /* Separación vertical entre los 3 botones */
+  width: 120px;            /* Ancho uniforme para todos los botones */
+  margin-top: 75px;        /* Baja los botones para que queden debajo del borde del banner y alineados con la foto */
+}
+
+/* Tu foto de avatar con su resplandor #240e17 */
+.imvu-avatar {
+  width: 160px;
+  height: 220px;
+  border-radius: 12px;
+  border: 2px solid #240e17;
+  background-color: #161616;
+  object-fit: cover;
+  animation: brilloVenomAvatar 3s ease-in-out infinite alternate;
+}
+
+/* Botones con el mismo estilo, borde y latido #240e17 que el avatar */
+.imvu-btn {
+  text-decoration: none;
+  background: #1a1216;     /* Fondo oscuro con un toque muy sutil del tono #240e17 */
+  color: #ffffff;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  border: 2px solid #240e17;
+  display: block;
+  text-align: center;
+  transition: 0.25s ease;
+  animation: brilloVenomAvatar 3s ease-in-out infinite alternate;
+}
+
+.imvu-btn:hover {
+  background: #240e17;     /* Al pasar el ratón se rellena con tu color #240e17 */
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+/* Animación de resplandor compartida entre avatar y botones */
+@keyframes brilloVenomAvatar {
+  0% {
+    box-shadow: 0 0 12px rgba(36, 14, 23, 0.7), 0 0 24px rgba(36, 14, 23, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 22px rgba(36, 14, 23, 1), 0 0 42px rgba(36, 14, 23, 0.9);
+  }
+}
+
+.imvu-name { margin: 10px 0 5px; font-size: 22px; }
+.imvu-bio { color: #aaa; font-size: 13px; margin-bottom: 20px; }
+
 
     /* Marco redondeado para el reproductor de YouTube */
 .imvu-yt-box {
@@ -322,14 +355,27 @@ body {
   <img src="https://raw.githubusercontent.com/hectorbcn82/mi-pagina-imvu/refs/heads/main/Marvel%20Vegas%20Sticker%20by%20Sony%20Pictures.gif" class="flotante-banner pos-der" alt="">
     
     <img src="Banner%20LoC0o.svg" class="imvu-banner" alt="Banner">
-    <img src="Avatar.gif" class="imvu-avatar" alt="Avatar">
-    <h1 class="imvu-name">LoC0o @IMVU</h1>
-    <p class="imvu-bio">Bienvenido a mi perfil.</p>
-<div>
-  <a href="https://www.imvu.com/catalog/web_add_contact.php?contact=LoC0o" onclick="abrirCentro(this.href, 'Añadir', 500, 400); return false;" class="imvu-btn">+ Añadir</a>
-  <a href="https://www.imvu.com/catalog/web_send_message_widget.php?recipient_id=38638463" onclick="abrirCentro(this.href, 'Mensaje', 550, 480); return false;" class="imvu-btn">Mensaje</a>
-  <a href="https://es.imvu.com/catalog/wishlist.php?user_id=38638463" onclick="abrirCentro(this.href, 'Wishlist', 800, 600); return false;" class="imvu-btn">Wishlist</a>
+<div class="imvu-profile-header">
+  
+  <!-- Columna Izquierda (3 botones) -->
+  <div class="imvu-btn-col">
+    <a href="https://imvu.com" onclick="abrirCentro(this.href, 'Añadir', 500, 400); return false;" class="imvu-btn">+ Añadir</a>
+    <a href="https://imvu.com" onclick="abrirCentro(this.href, 'Mensaje', 550, 480); return false;" class="imvu-btn">Mensaje</a>
+    <a href="https://imvu.com" onclick="abrirCentro(this.href, 'Wishlist', 800, 600); return false;" class="imvu-btn">Wishlist</a>
+  </div>
+
+  <!-- Foto de Avatar en el Centro -->
+  <img src="Avatar.gif" class="imvu-avatar" alt="Avatar">
+
+  <!-- Columna Derecha (3 botones) -->
+  <div class="imvu-btn-col">
+    <a href="https://imvu.com" onclick="abrirCentro(this.href, 'Perfil', 850, 650); return false;" class="imvu-btn">Perfil</a>
+    <a href="https://imvu.com" onclick="abrirCentro(this.href, 'Catálogo', 850, 650); return false;" class="imvu-btn">Catálogo</a>
+    <a href="https://imvu.com" onclick="abrirCentro(this.href, 'Sala', 850, 650); return false;" class="imvu-btn">Sala / Web</a>
+  </div>
+
 </div>
+
 
 <div class="imvu-yt-box">
     <script src="https://www.youtube.com/player_api"></script>
