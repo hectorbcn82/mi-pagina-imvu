@@ -72,7 +72,7 @@
   display: block;
 }
 
-    /* Fondo base oscuro */
+/* Fondo base oscuro */
 body {
   background-color: #030305;
   margin: 0;
@@ -81,61 +81,108 @@ body {
   overflow-x: hidden;
 }
 
-/* Capa fija del SVG animado detrás de todo */
-.venom-bg {
+/* Capa fija de telarañas de simbionte detrás de todo */
+.symbiote-web-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background: radial-gradient(circle at 50% 50%, #12081d 0%, #020203 100%);
+  background: radial-gradient(circle at 50% 40%, #160924 0%, #030305 85%);
   overflow: hidden;
 }
 
-.venom-bg svg {
+.symbiote-web-bg svg {
   width: 100%;
   height: 100%;
-  filter: contrast(18) blur(6px); /* Efecto líquido viscoso (Gooey effect) */
+  opacity: 0.75;
 }
 
-.symbiote-blob {
-  fill: #000000;
-  stroke: #3b1d5e;
-  stroke-width: 4;
-  transform-origin: center;
-  animation: symbioteMove 12s ease-in-out infinite alternate;
+/* Animación de respiración y balanceo de la telaraña */
+.web-layer-1 {
+  transform-origin: 0% 0%;
+  animation: webSway 10s ease-in-out infinite alternate;
 }
 
-.symbiote-blob:nth-child(2) {
-  animation-duration: 16s;
-  animation-delay: -4s;
-  stroke: #1e3a8a;
+.web-layer-2 {
+  transform-origin: 100% 100%;
+  animation: webSwayReverse 14s ease-in-out infinite alternate;
 }
 
-.symbiote-blob:nth-child(3) {
-  animation-duration: 20s;
-  animation-delay: -8s;
-  stroke: #581c87;
+/* Hilos principales de simbionte */
+.web-strand {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.14);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.4));
 }
 
-@keyframes symbioteMove {
-  0% { transform: scale(1) rotate(0deg) translate(0, 0); }
-  50% { transform: scale(1.25) rotate(12deg) translate(30px, -20px); }
-  100% { transform: scale(0.95) rotate(-10deg) translate(-25px, 25px); }
+/* Hilos gruesos orgánicos (estilo Venom) */
+.venom-tendril {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5));
+  animation: pulseGlow 5s ease-in-out infinite alternate;
 }
 
-  </style>
+@keyframes webSway {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.06) rotate(2.5deg); }
+}
+
+@keyframes webSwayReverse {
+  0% { transform: scale(1.04) rotate(0deg); }
+  100% { transform: scale(0.98) rotate(-3deg); }
+}
+
+@keyframes pulseGlow {
+  0% { filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.2)); }
+  100% { filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.7)); }
+}
+</style>
 </head>
 <body>
-   <div class="venom-bg">
-  <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-    <path class="symbiote-blob" d="M150,300 Q250,100 400,250 T650,200 Q700,400 500,450 T150,300 Z" />
-    <path class="symbiote-blob" d="M100,150 Q350,50 450,300 T750,350 Q600,550 300,500 T100,150 Z" />
-    <path class="symbiote-blob" d="M200,450 Q400,200 600,400 T700,100 Q450,50 250,200 T200,450 Z" />
+<div class="symbiote-web-bg">
+  <svg viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice">
+    
+    <!-- Telaraña esquina superior izquierda -->
+    <g class="web-layer-1">
+      <!-- Radios -->
+      <line x1="0" y1="0" x2="550" y2="120" class="web-strand" />
+      <line x1="0" y1="0" x2="480" y2="320" class="web-strand" />
+      <line x1="0" y1="0" x2="320" y2="520" class="web-strand" />
+      <line x1="0" y1="0" x2="110" y2="620" class="web-strand" />
+      <!-- Arcos de telaraña -->
+      <path d="M 140,30 Q 110,80 120,115 Q 75,130 80,175 Q 35,175 28,200" class="web-strand" />
+      <path d="M 275,60 Q 220,150 240,210 Q 150,240 160,310 Q 70,320 55,370" class="web-strand" />
+      <path d="M 420,90 Q 340,230 365,310 Q 230,360 245,450 Q 110,470 85,540" class="web-strand" />
+      <!-- Zarcillos negros de simbionte superpuestos -->
+      <path d="M -10,-10 Q 180,80 350,50 T 620,160" class="venom-tendril" />
+      <path d="M -10,40 Q 120,220 260,290 T 450,520" class="venom-tendril" />
+    </g>
+
+    <!-- Telaraña esquina inferior derecha -->
+    <g class="web-layer-2">
+      <!-- Radios -->
+      <line x1="1000" y1="800" x2="450" y2="680" class="web-strand" />
+      <line x1="1000" y1="800" x2="520" y2="480" class="web-strand" />
+      <line x1="1000" y1="800" x2="680" y2="280" class="web-strand" />
+      <line x1="1000" y1="800" x2="890" y2="180" class="web-strand" />
+      <!-- Arcos de telaraña -->
+      <path d="M 860,770 Q 890,720 880,685 Q 925,670 920,625 Q 965,625 972,600" class="web-strand" />
+      <path d="M 725,740 Q 780,650 760,590 Q 850,560 840,490 Q 930,480 945,430" class="web-strand" />
+      <path d="M 580,710 Q 660,570 635,490 Q 770,440 755,350 Q 890,330 915,260" class="web-strand" />
+      <!-- Zarcillos negros de simbionte superpuestos -->
+      <path d="M 1010,810 Q 820,720 650,750 T 380,640" class="venom-tendril" />
+      <path d="M 1010,760 Q 880,580 740,510 T 550,280" class="venom-tendril" />
+    </g>
+
   </svg>
 </div>
-
   
   <div class="imvu-wrapper">
     <div class="imvu-banner"></div>
