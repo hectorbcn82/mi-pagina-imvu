@@ -33,15 +33,12 @@
 
 /* Mantiene las esquinas redondeadas del banner aunque overflow sea visible */
 .imvu-banner {
-  width: 100% !important;
-  height: 250px !important; /* <-- Cambia este número a tu gusto (ej. 150px, 220px, 300px) */
-  background-color: #252525;
-  background-image: url('Banner%20LoC0o.svg');
-  background-size: 100% 100%; /* Hace que el SVG se estire exacto al nuevo alto */
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 240px !important;   /* <-- Cambia este número a la altura exacta que quieras (ej. 150px, 220px, 300px) */
+  object-fit: fill;           /* Ajusta el SVG completo al ancho y alto sin recortar nada */
   display: block;
+  border-radius: 15px 15px 0 0;
+  background-color: #252525;
 }
 
 /* Estilo base de los 3 elementos flotantes que siguen la página */
