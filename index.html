@@ -144,14 +144,36 @@ body {
   100% { filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.7)); }
 }
 
-  /* Cursor normal en toda la página (Cara de Venom) */
+  /* 1. Cursor principal (Cara de Venom) */
   body, html {
     cursor: url('https://raw.githubusercontent.com/hectorbcn82/mi-pagina-imvu/refs/heads/main/Cursor%20Cara%20Venom.png'), auto !important;
   }
 
-  /* Cursor al pasar sobre enlaces o botones (Símbolo de Venom) */
-  a, a:hover, button, input[type="submit"] {
+  /* 2. Cursor sobre enlaces (Símbolo de Venom) */
+  a, a:hover, button {
     cursor: url('https://raw.githubusercontent.com/hectorbcn82/mi-pagina-imvu/refs/heads/main/Cursor%20Logo%20Venom.png'), pointer !important;
+  }
+
+  /* 3. Estilo de las telarañas del rastro */
+  .rastro-telarana {
+    position: fixed;
+    pointer-events: none; /* Evita que la telaraña bloquee los clics */
+    width: 28px;          /* Tamaño de la telaraña */
+    height: 28px;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    animation: desvanecerWeb 0.8s linear forwards;
+  }
+
+  @keyframes desvanecerWeb {
+    0% {
+      opacity: 0.9;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.3);
+    }
   }
 
 </style>
@@ -210,6 +232,35 @@ body {
     <script src="https://www.youtube.com/player_api"></script>
     <iframe allow="autoplay" width="100%" height="315" src="https://www.youtube.com/embed/tWR-YuUsPGo?modestbranding=1&fs=0&rel=0&hd=1&disablekb=0&showinfo=0&iv_load_policy=0&enablejsapi=1&autoplay=1&loop=1&controls=0&playlist=tWR-YuUsPGo" frameborder="0" allowfullscreen=""></iframe>
 </div>
+
+    <script type="text/javascript">
+  (function() {
+    var urlTelarana = 'https://raw.githubusercontent.com/hectorbcn82/mi-pagina-imvu/refs/heads/main/Telara%C3%B1a%20Cursor.png';
+    var ultimoTiempo = 0;
+
+    document.addEventListener('mousemove', function(e) {
+      var ahora = Date.now();
+      // Crea una telaraña cada 45 milisegundos para no saturar la página
+      if (ahora - ultimoTiempo < 45) return;
+      ultimoTiempo = ahora;
+
+      var web = document.createElement('img');
+      web.src = urlTelarana;
+      web.className = 'rastro-telarana';
+      web.style.left = e.clientX + 'px';
+      web.style.top = e.clientY + 'px';
+
+      document.body.appendChild(web);
+
+      // Elimina la imagen tras 800ms para que el perfil no se ponga lento
+      setTimeout(function() {
+        if (web.parentNode) {
+          web.parentNode.removeChild(web);
+        }
+      }, 800);
+    });
+  })();
+</script>
 
 </body>
 </html>
