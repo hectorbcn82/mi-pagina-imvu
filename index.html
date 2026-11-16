@@ -176,9 +176,58 @@ body {
     }
   }
 
-</style>
+   /* Contenedor y estilo base de cualquier elemento flotante */
+.flotante {
+  position: fixed;
+  pointer-events: none; /* Permite hacer clic a través de ellos sin estorbar */
+  z-index: 10;          /* Los pone por encima del fondo, ajusta a 999 si quieres que tapen la tarjeta */
+  animation: flotarSuave 4s ease-in-out infinite alternate;
+}
+
+/* Animación de levitación */
+@keyframes flotarSuave {
+  0% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(-18px) rotate(3deg);
+  }
+}
+
+/* --- AQUÍ PERSONALIZAS CADA ELEMENTO A TU GUSTO --- */
+
+/* Elemento 1: Arriba a la izquierda */
+.elem-1 {
+  top: 10%;
+  left: 8%;
+  width: 90px;
+}
+
+/* Elemento 2: Abajo a la derecha */
+.elem-2 {
+  bottom: 12%;
+  right: 8%;
+  width: 110px;
+  animation-delay: 1.5s; /* Para que no se muevan al mismo ritmo */
+}
+
+/* Elemento 3: En medio a la derecha */
+.elem-3 {
+  top: 45%;
+  right: 15%;
+  width: 70px;
+  animation-duration: 3s; /* Flota un poco más rápido */
+}
+  
+  </style>
 </head>
 <body>
+
+<!-- Cambia los nombres de archivo por tus imágenes subidas a GitHub -->
+<img src="elemento1.png" class="flotante elem-1" alt="">
+<img src="elemento2.png" class="flotante elem-2" alt="">
+<img src="elemento3.png" class="flotante elem-3" alt="">
+  
 <div class="symbiote-web-bg">
   <svg viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice">
     
