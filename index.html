@@ -22,6 +22,59 @@
       text-align: center;
       padding-bottom: 30px;
     }
+
+
+    /* Permite que los flotantes sobresalgan por encima del borde del banner */
+  .imvu-wrapper {
+  position: relative;
+  overflow: visible !important;
+  margin-top: 60px; /* Espacio arriba para que quepan bien los 3 elementos */
+}
+
+/* Mantiene las esquinas redondeadas del banner aunque overflow sea visible */
+.imvu-banner {
+  border-radius: 15px 15px 0 0;
+}
+
+/* Estilo base de los 3 elementos flotantes que siguen la página */
+.flotante-banner {
+  position: absolute;
+  top: -35px;           /* Altura: negativo sube por encima del banner, positivo baja sobre él */
+  width: 70px;          /* Tamaño de los elementos */
+  z-index: 20;
+  pointer-events: none;
+  animation: flotarBanner 3s ease-in-out infinite alternate;
+}
+
+/* Posición 1: Lado izquierdo */
+.pos-izq {
+  left: 25px;
+  animation-delay: 0s;
+}
+
+/* Posición 2: Justo en el medio (misma altura) */
+.pos-centro {
+  left: 50%;
+  margin-left: -35px;   /* Debe ser exactamente la mitad negativa de 'width' (70px / 2 = -35px) */
+  animation-delay: 0.8s;
+}
+
+/* Posición 3: Lado derecho (misma altura) */
+.pos-der {
+  right: 25px;
+  animation-delay: 1.6s;
+}
+
+/* Animación de flotación suave */
+@keyframes flotarBanner {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-14px);
+  }
+}    
+    
     .imvu-banner {
   height: 180px;
   background-color: #252525;
