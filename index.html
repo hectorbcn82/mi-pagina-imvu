@@ -257,18 +257,21 @@ body {
 .imvu-footer {
   margin-top: 25px;
   padding-top: 15px;
-  border-top: 1px solid #2a2a2a; /* Línea divisoria sutil */
+  border-top: 1px solid #2a2a2a;
   color: #777777;
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  display: flex;
+  justify-content: center; /* Los centra ambos */
+  gap: 25px;               /* Separación exacta entre los dos textos */
+  align-items: center;
 }
 
 .imvu-footer span {
-  color: #7c2d4b; /* Detalle morado Venom para resaltar tu nombre o símbolo */
+  color: #a855f7;
   font-weight: 600;
 }
-
   
   </style>
 </head>
@@ -334,8 +337,10 @@ body {
 </div>
 
     <div class="imvu-footer">
-     We Are Venom • <span>LoC0o</span> • © 2026
-  </div>
+  <div>LoC0o<span>© 2026</span><span>IMVU</span></div>
+  <div>|</div>
+  <div>We Are <span>Venom</span></div>
+</div>
     
     
     <script>
