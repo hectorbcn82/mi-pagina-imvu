@@ -23,7 +23,7 @@
     .imvu-wrapper {
       background: linear-gradient(180deg, #141013 0%, #0d0b0d 100%);
       max-width: 750px;
-      margin: 55px auto 30px;
+      margin: 25px auto 30px;
       border-radius: 18px;
       position: relative;
       overflow: visible !important;
@@ -64,26 +64,6 @@
       display: block;
       border: none;
       pointer-events: none;
-    }
-
-    /* Stickers flotantes superiores */
-    .flotante-banner {
-      position: absolute;
-      top: -52px;
-      width: 72px;
-      z-index: 25;
-      pointer-events: none;
-      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7));
-      animation: flotarBanner 3.2s ease-in-out infinite alternate;
-    }
-
-    .pos-izq { left: 28px; animation-delay: 0s; }
-    .pos-centro { left: 50%; margin-left: -36px; animation-delay: 0.9s; }
-    .pos-der { right: 28px; animation-delay: 1.8s; }
-
-    @keyframes flotarBanner {
-      0% { transform: translateY(0px) rotate(-2deg); }
-      100% { transform: translateY(-13px) rotate(2deg); }
     }
 
     /* Separador decorativo con insignia central */
@@ -310,40 +290,38 @@
       .imvu-yt-box { width: 92%; }
       .imvu-yt-box iframe { height: 215px; }
     }
-  
 
     /* SEGUNDA CAJA INDEPENDIENTE CON VENTANA TIPO MARQUESINA PARA PRODUCTOS */
-.imvu-marquee-card {
-  background: linear-gradient(180deg, #141013 0%, #0d0b0d 100%);
-  max-width: 750px;
-  margin: 28px auto 35px;
-  border-radius: 18px;
-  position: relative;
-  border: 1px solid #381624;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 35px rgba(36, 14, 23, 0.65);
-  text-align: center;
-  padding: 22px 25px 28px;
-}
+    .imvu-marquee-card {
+      background: linear-gradient(180deg, #141013 0%, #0d0b0d 100%);
+      max-width: 750px;
+      margin: 28px auto 35px;
+      border-radius: 18px;
+      position: relative;
+      border: 1px solid #381624;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 35px rgba(36, 14, 23, 0.65);
+      text-align: center;
+      padding: 22px 25px 28px;
+    }
 
-.marquee-frame-box {
-  width: 100%;
-  max-width: 670px;
-  height: 100px; /* Ajusta esta altura si tu panel necesita más espacio */
-  margin: 14px auto 0;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid #4a192e;
-  background-color: #090507;
-  box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.95), 0 0 18px rgba(74, 25, 46, 0.4);
-}
+    .marquee-frame-box {
+      width: 100%;
+      max-width: 670px;
+      height: 100px;
+      margin: 14px auto 0;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #4a192e;
+      background-color: #090507;
+      box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.95), 0 0 18px rgba(74, 25, 46, 0.4);
+    }
 
-.marquee-frame-box iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-  
+    .marquee-frame-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -377,26 +355,17 @@
   </svg>
 </div>
 
-
 <div class="imvu-wrapper">
-  <!-- Stickers flotantes superiores -->
-  <img src="Hungry2-Venom-2-Sticker-by-Venom-Movie.gif" class="flotante-banner pos-izq" alt="">
-  <img src="Happy%20Dance%20Sticker%20by%20Venom%20Movie.gif" class="flotante-banner pos-centro" alt="">
-  <img src="Marvel%20Vegas%20Sticker%20by%20Sony%20Pictures.gif" class="flotante-banner pos-der" alt="">
-
-  <!-- Banner panorámico a ancho completo (750px) -->
   <div class="imvu-banner-wrap">
     <object data="banner.svg" type="image/svg+xml" class="imvu-banner"></object>
   </div>
 
-  <!-- Separador con etiqueta -->
   <div class="imvu-divider">
     <div class="imvu-divider-line"></div>
     <div class="imvu-status-badge"> • Symbionte Edicion • </div>
     <div class="imvu-divider-line"></div>
   </div>
 
-  <!-- Bloque de perfil: Botones + Avatar -->
   <div class="imvu-profile-header">
     <div class="imvu-btn-col">
       <a href="#anadir" onclick="abrirCentro('https://imvu.com', 'Añadir', 500, 400); return false;" class="imvu-btn">+ Añadir</a>
@@ -415,12 +384,10 @@
     </div>
   </div>
 
-  <!-- Reproductor multimedia -->
   <div class="imvu-yt-box">
     <iframe allow="autoplay" width="100%" height="325" src="about:blank" data-yt="tWR-YuUsPGo" frameborder="0" allowfullscreen=""></iframe>
   </div>
 
-  <!-- Pie de tarjeta -->
   <div class="imvu-footer">
     <div>Diseño By <span>LoC0o © 2026</span></div>
     <div>|</div>
@@ -428,8 +395,6 @@
   </div>
 </div>
 
-  
-<!-- SEGUNDA CAJA: MARQUESINA OFICIAL DE PRODUCTOS CREATOR -->
 <div class="imvu-marquee-card">
   <div class="imvu-divider" style="margin: 0 10px 15px;">
     <div class="imvu-divider-line"></div>
@@ -492,7 +457,6 @@
   </div>
 </div>
 
-  
 <script>
   // Cargar reproductor de YouTube dinámicamente
   (function() {
@@ -592,8 +556,8 @@
         }
 
         if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
-        if (p.x < -10) p.x = w + 10;
-        if (p.x > w + 10) p.x = -10;
+        if (p.x < -10) { p.x = w + 10; }
+        if (p.x > w + 10) { p.x = -10; }
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -610,6 +574,5 @@
   })();
 </script>
 
-  
 </body>
 </html>
