@@ -314,32 +314,35 @@
 </head>
 <body>
 
-<div class="symbiote-web-bg">
+<div class="symbiote-web-bg" style="background: radial-gradient(circle at 50% 25%, #240e17 0%, #0d0509 55%, #030305 100%);">
+  <canvas id="symbioteCanvas" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none;"></canvas>
   <svg viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice">
-    <g class="web-layer-1">
-      <line x1="0" y1="0" x2="550" y2="120" class="web-strand" />
-      <line x1="0" y1="0" x2="480" y2="320" class="web-strand" />
-      <line x1="0" y1="0" x2="320" y2="520" class="web-strand" />
-      <line x1="0" y1="0" x2="110" y2="620" class="web-strand" />
-      <path d="M 140,30 Q 110,80 120,115 Q 75,130 80,175 Q 35,175 28,200" class="web-strand" />
-      <path d="M 275,60 Q 220,150 240,210 Q 150,240 160,310 Q 70,320 55,370" class="web-strand" />
-      <path d="M 420,90 Q 340,230 365,310 Q 230,360 245,450 Q 110,470 85,540" class="web-strand" />
-      <path d="M -10,-10 Q 180,80 350,50 T 620,160" class="venom-tendril" />
-      <path d="M -10,40 Q 120,220 260,290 T 450,520" class="venom-tendril" />
+    <defs>
+      <filter id="wet-web" x="-10%" y="-10%" width="120%" height="120%">
+        <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#8f1d4c" flood-opacity="0.7"/>
+      </filter>
+    </defs>
+    <g class="web-layer-1" filter="url(#wet-web)">
+      <line x1="0" y1="0" x2="550" y2="120" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <line x1="0" y1="0" x2="480" y2="320" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <line x1="0" y1="0" x2="320" y2="520" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <path d="M 140,30 Q 110,80 120,115 Q 75,130 80,175 Q 35,175 28,200" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <path d="M 275,60 Q 220,150 240,210 Q 150,240 160,310 Q 70,320 55,370" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <path d="M -10,-10 Q 180,80 350,50 T 620,160" class="venom-tendril" style="stroke: #050204;" />
+      <path d="M -10,40 Q 120,220 260,290 T 450,520" class="venom-tendril" style="stroke: #050204;" />
     </g>
-    <g class="web-layer-2">
-      <line x1="1000" y1="800" x2="450" y2="680" class="web-strand" />
-      <line x1="1000" y1="800" x2="520" y2="480" class="web-strand" />
-      <line x1="1000" y1="800" x2="680" y2="280" class="web-strand" />
-      <line x1="1000" y1="800" x2="890" y2="180" class="web-strand" />
-      <path d="M 860,770 Q 890,720 880,685 Q 925,670 920,625 Q 965,625 972,600" class="web-strand" />
-      <path d="M 725,740 Q 780,650 760,590 Q 850,560 840,490 Q 930,480 945,430" class="web-strand" />
-      <path d="M 580,710 Q 660,570 635,490 Q 770,440 755,350 Q 890,330 915,260" class="web-strand" />
-      <path d="M 1010,810 Q 820,720 650,750 T 380,640" class="venom-tendril" />
-      <path d="M 1010,760 Q 880,580 740,510 T 550,280" class="venom-tendril" />
+    <g class="web-layer-2" filter="url(#wet-web)">
+      <line x1="1000" y1="800" x2="450" y2="680" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <line x1="1000" y1="800" x2="520" y2="480" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <line x1="1000" y1="800" x2="680" y2="280" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <path d="M 860,770 Q 890,720 880,685 Q 925,670 920,625 Q 965,625 972,600" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <path d="M 725,740 Q 780,650 760,590 Q 850,560 840,490 Q 930,480 945,430" class="web-strand" style="stroke: rgba(224, 163, 188, 0.14);" />
+      <path d="M 1010,810 Q 820,720 650,750 T 380,640" class="venom-tendril" style="stroke: #050204;" />
+      <path d="M 1010,760 Q 880,580 740,510 T 550,280" class="venom-tendril" style="stroke: #050204;" />
     </g>
   </svg>
 </div>
+
 
 <div class="imvu-wrapper">
   <!-- Stickers flotantes superiores -->
