@@ -383,16 +383,84 @@ html {
 </head>
 <body>
 
-<!-- COLMILLOS SUPERIORES CURVADOS TIPO GARRA -->
-<svg class="screen-fangs-top" viewBox="0 0 1440 90" preserveAspectRatio="none">
+<!-- COLMILLOS SUPERIORES CURVADOS CON GOTAS DE SIMBIONTE NEGRO -->
+<svg class="screen-fangs-top" viewBox="0 0 1440 240" preserveAspectRatio="none" style="height: 225px;">
   <defs>
+    <!-- Degradado de los colmillos -->
     <linearGradient id="garraSup" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#a89fb0"/>
       <stop offset="30%" stop-color="#ffffff"/>
       <stop offset="80%" stop-color="#f5f2f7"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0.95"/>
     </linearGradient>
+
+    <!-- Textura negra viscosa con brillo líquido para las gotas -->
+    <radialGradient id="gotaSimbionte" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#5c243d"/>
+      <stop offset="28%" stop-color="#1a0911"/>
+      <stop offset="75%" stop-color="#040205"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
   </defs>
+
+  <!-- GOTAS DE SIMBIONTE CAYENDO POR LOS LADOS (IZQUIERDA Y DERECHA) -->
+  <!-- Lado Izquierdo - Colmillo 1 (x=62) -->
+  <g>
+    <path d="M 62,68 C 66,82 69,92 62,102 C 55,92 58,82 62,68 Z" fill="url(#gotaSimbionte)" stroke="#4a192e" stroke-width="0.8">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,12; 0,135" keyTimes="0; 0.35; 1" dur="4.2s" begin="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.25; 0.75; 1" dur="4.2s" begin="0.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Lado Izquierdo - Colmillo largo (x=148) -->
+  <g>
+    <path d="M 148,84 C 154,102 158,116 148,130 C 138,116 142,102 148,84 Z" fill="url(#gotaSimbionte)" stroke="#5c1c38" stroke-width="0.9">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,16; 0,145" keyTimes="0; 0.4; 1" dur="5.1s" begin="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.3; 0.8; 1" dur="5.1s" begin="1.8s" repeatCount="indefinite"/>
+    </path>
+    <!-- Hilo viscoso estirándose en la punta del colmillo largo -->
+    <path d="M 145,84 Q 148,108 151,84 Z" fill="#060308">
+      <animate attributeName="d" values="M 145,84 Q 148,92 151,84 Z; M 145,84 Q 148,125 151,84 Z; M 145,84 Q 148,88 151,84 Z" keyTimes="0; 0.4; 1" dur="5.1s" begin="1.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Lado Izquierdo - Colmillo 3 (x=228) -->
+  <g>
+    <path d="M 228,52 C 232,64 234,72 228,80 C 222,72 224,64 228,52 Z" fill="url(#gotaSimbionte)" stroke="#4a192e" stroke-width="0.7">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,10; 0,150" keyTimes="0; 0.3; 1" dur="4.7s" begin="3.1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0.95; 0.95; 0" keyTimes="0; 0.25; 0.75; 1" dur="4.7s" begin="3.1s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Lado Derecho - Colmillo 3 (x=1212) -->
+  <g>
+    <path d="M 1212,52 C 1216,64 1218,72 1212,80 C 1206,72 1208,64 1212,52 Z" fill="url(#gotaSimbionte)" stroke="#4a192e" stroke-width="0.7">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,10; 0,150" keyTimes="0; 0.3; 1" dur="4.9s" begin="1.1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0.95; 0.95; 0" keyTimes="0; 0.25; 0.75; 1" dur="4.9s" begin="1.1s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Lado Derecho - Colmillo largo (x=1292) -->
+  <g>
+    <path d="M 1292,84 C 1298,102 1302,116 1292,130 C 1282,116 1286,102 1292,84 Z" fill="url(#gotaSimbionte)" stroke="#5c1c38" stroke-width="0.9">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,16; 0,145" keyTimes="0; 0.4; 1" dur="5.4s" begin="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.3; 0.8; 1" dur="5.4s" begin="2.4s" repeatCount="indefinite"/>
+    </path>
+    <!-- Hilo viscoso estirándose -->
+    <path d="M 1289,84 Q 1292,108 1295,84 Z" fill="#060308">
+      <animate attributeName="d" values="M 1289,84 Q 1292,92 1295,84 Z; M 1289,84 Q 1292,125 1295,84 Z; M 1289,84 Q 1292,88 1295,84 Z" keyTimes="0; 0.4; 1" dur="5.4s" begin="2.4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Lado Derecho - Colmillo exterior (x=1378) -->
+  <g>
+    <path d="M 1378,68 C 1382,82 1385,92 1378,102 C 1371,92 1374,82 1378,68 Z" fill="url(#gotaSimbionte)" stroke="#4a192e" stroke-width="0.8">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,12; 0,135" keyTimes="0; 0.35; 1" dur="4.4s" begin="3.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.25; 0.75; 1" dur="4.4s" begin="3.6s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- COLMILLOS SUPERIORES CURVADOS -->
   <path d="M 30,0 Q 42,40 62,72 Q 58,35 68,0 Z" fill="url(#garraSup)"/>
   <path d="M 105,0 Q 120,48 148,88 Q 140,42 155,0 Z" fill="url(#garraSup)"/>
   <path d="M 198,0 Q 210,30 228,55 Q 224,26 234,0 Z" fill="url(#garraSup)"/>
@@ -411,7 +479,6 @@ html {
   <path d="M 1285,0 Q 1300,42 1292,88 Q 1320,48 1335,0 Z" fill="url(#garraSup)"/>
   <path d="M 1372,0 Q 1382,35 1378,72 Q 1398,40 1410,0 Z" fill="url(#garraSup)"/>
 </svg>
-
   
 <div class="symbiote-web-bg" style="background: radial-gradient(circle at 50% 25%, #240e17 0%, #0d0509 55%, #030305 100%);">
   <canvas id="symbioteCanvas" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none;"></canvas>
