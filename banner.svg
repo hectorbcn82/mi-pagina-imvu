@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1024" width="2048" height="1024">
+<svg xmlns="http://w3.org" viewBox="0 0 2048 1024" width="100%" height="100%" preserveAspectRatio="none">
 <defs>
   <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
     <feGaussianBlur stdDeviation="3" result="b1"/>
