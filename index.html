@@ -322,6 +322,46 @@
       border: none;
       display: block;
     }
+  
+    /* DIENTES DE VENOM MORDIENDO LOS BLOQUES */
+.imvu-marquee-card {
+  overflow: visible !important; /* Permite que los dientes inferiores sobresalgan por abajo */
+}
+
+.venom-teeth-top {
+  position: absolute;
+  top: -14px;
+  left: 2%;
+  width: 96%;
+  height: 65px;
+  z-index: 20;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.9));
+  animation: mordidaSuperior 3.5s ease-in-out infinite alternate;
+}
+
+.venom-teeth-bottom {
+  position: absolute;
+  bottom: -14px;
+  left: 2%;
+  width: 96%;
+  height: 65px;
+  z-index: 20;
+  pointer-events: none;
+  filter: drop-shadow(0 -8px 10px rgba(0, 0, 0, 0.9));
+  animation: mordidaInferior 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes mordidaSuperior {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(6px); }
+}
+
+@keyframes mordidaInferior {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-6px); }
+}
+  
   </style>
 </head>
 <body>
@@ -356,6 +396,36 @@
 </div>
 
 <div class="imvu-wrapper">
+    <!-- MANDÍBULA SUPERIOR DE VENOM -->
+  <svg class="venom-teeth-top" viewBox="0 0 750 70" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="dienteSup" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#381624"/>
+        <stop offset="22%" stop-color="#d8d4dc"/>
+        <stop offset="70%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#a89fb0" stop-opacity="0.85"/>
+      </linearGradient>
+    </defs>
+    <!-- Encía negra simbionte -->
+    <path d="M 0,14 Q 180,24 375,18 Q 570,24 750,14 L 750,0 L 0,0 Z" fill="#08040a" stroke="#4a192e" stroke-width="1.5"/>
+    <!-- Colmillos superiores asimétricos -->
+    <path d="M 35,14 L 52,58 L 68,15 Z" fill="url(#dienteSup)"/>
+    <path d="M 85,15 L 106,68 L 125,16 Z" fill="url(#dienteSup)"/>
+    <path d="M 145,16 L 158,46 L 172,17 Z" fill="url(#dienteSup)"/>
+    <path d="M 192,17 L 204,40 L 216,17 Z" fill="url(#dienteSup)"/>
+    <path d="M 235,17 L 246,36 L 258,18 Z" fill="url(#dienteSup)"/>
+    <path d="M 280,18 L 290,34 L 300,18 Z" fill="url(#dienteSup)"/>
+    <path d="M 322,18 L 332,38 L 342,18 Z" fill="url(#dienteSup)"/>
+    <path d="M 365,18 L 375,35 L 385,18 Z" fill="url(#dienteSup)"/>
+    <path d="M 408,18 L 418,38 L 428,18 Z" fill="url(#dienteSup)"/>
+    <path d="M 450,18 L 460,34 L 470,18 Z" fill="url(#dienteSup)"/>
+    <path d="M 492,18 L 504,36 L 515,17 Z" fill="url(#dienteSup)"/>
+    <path d="M 534,17 L 546,40 L 558,17 Z" fill="url(#dienteSup)"/>
+    <path d="M 578,17 L 592,46 L 605,16 Z" fill="url(#dienteSup)"/>
+    <path d="M 625,16 L 644,68 L 665,15 Z" fill="url(#dienteSup)"/>
+    <path d="M 682,15 L 698,58 L 715,14 Z" fill="url(#dienteSup)"/>
+  </svg>
+
   <div class="imvu-banner-wrap">
     <object data="banner.svg" type="image/svg+xml" class="imvu-banner"></object>
   </div>
@@ -400,6 +470,35 @@
     <div class="imvu-divider-line"></div>
     <div class="imvu-status-badge">• Catálogo •</div>
     <div class="imvu-divider-line"></div>
+
+    <!-- MANDÍBULA INFERIOR DE VENOM -->
+  <svg class="venom-teeth-bottom" viewBox="0 0 750 70" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="dienteInf" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0%" stop-color="#381624"/>
+        <stop offset="22%" stop-color="#d8d4dc"/>
+        <stop offset="70%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#a89fb0" stop-opacity="0.85"/>
+      </linearGradient>
+    </defs>
+    <!-- Encía inferior simbionte -->
+    <path d="M 0,56 Q 180,46 375,52 Q 570,46 750,56 L 750,70 L 0,70 Z" fill="#08040a" stroke="#4a192e" stroke-width="1.5"/>
+    <!-- Colmillos inferiores apuntando hacia arriba -->
+    <path d="M 45,56 L 62,14 L 78,55 Z" fill="url(#dienteInf)"/>
+    <path d="M 102,55 L 124,4 L 144,54 Z" fill="url(#dienteInf)"/>
+    <path d="M 165,54 L 178,24 L 192,53 Z" fill="url(#dienteInf)"/>
+    <path d="M 212,53 L 224,30 L 236,53 Z" fill="url(#dienteInf)"/>
+    <path d="M 255,53 L 266,34 L 278,52 Z" fill="url(#dienteInf)"/>
+    <path d="M 300,52 L 310,36 L 320,52 Z" fill="url(#dienteInf)"/>
+    <path d="M 342,52 L 352,32 L 362,52 Z" fill="url(#dienteInf)"/>
+    <path d="M 388,52 L 398,32 L 408,52 Z" fill="url(#dienteInf)"/>
+    <path d="M 430,52 L 440,36 L 450,52 Z" fill="url(#dienteInf)"/>
+    <path d="M 472,52 L 484,34 L 495,53 Z" fill="url(#dienteInf)"/>
+    <path d="M 514,53 L 526,30 L 538,53 Z" fill="url(#dienteInf)"/>
+    <path d="M 558,53 L 572,24 L 585,54 Z" fill="url(#dienteInf)"/>
+    <path d="M 606,54 L 626,4 L 648,55 Z" fill="url(#dienteInf)"/>
+    <path d="M 672,55 L 688,14 L 705,56 Z" fill="url(#dienteInf)"/>
+  </svg>
   </div>
 
   <div class="marquee-frame-box" style="height: 100px; display: flex; align-items: center; padding: 0 10px;">
