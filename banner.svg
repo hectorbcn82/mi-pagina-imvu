@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1024" width="2048" height="1024">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1024" width="100%" height="100%" preserveAspectRatio="none">
 <defs>
   <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
     <feGaussianBlur stdDeviation="3" result="b1"/>
@@ -17,7 +17,7 @@
   <linearGradient id="lg"><stop offset="0%" stop-color="#240e17" stop-opacity="0"/><stop offset="50%" stop-color="#ff1e56" stop-opacity="0.95"/><stop offset="100%" stop-color="#240e17" stop-opacity="0"/></linearGradient>
 </defs>
 <rect width="2048" height="1024" fill="#08040a"/>
-<image href="banner_opt.webp" x="0" y="0" width="2048" height="1024" filter="url(#bloom)"/>
+<image href="banner_opt.webp" x="0" y="0" width="2048" height="1024" preserveAspectRatio="none" filter="url(#bloom)"/>
 <g filter="url(#glow)">
   <line x1="0" y1="432" x2="660" y2="495" stroke="#ff1e56" stroke-width="2.2"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="4s" repeatCount="indefinite"/></line>
   <line x1="2048" y1="412" x2="1388" y2="485" stroke="#ff1e56" stroke-width="2.2"><animate attributeName="opacity" values="0.85;0.2;0.85" dur="4s" repeatCount="indefinite"/></line>
