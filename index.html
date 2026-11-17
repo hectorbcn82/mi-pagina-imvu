@@ -354,6 +354,31 @@
   }
 }
 
+/* SCROLLBAR SIMBIONTE PERSONALIZADA */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #6e1d3d #050204;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050204;
+  border-left: 1px solid #1f0a13;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1a0810 0%, #5c1634 45%, #8f1d4c 75%, #1a0810 100%);
+  border-radius: 10px;
+  border: 2px solid #050204;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2b0c19 0%, #8f1d4c 45%, #ff1e56 75%, #2b0c19 100%);
+}
+    
   </style>
 </head>
 <body>
