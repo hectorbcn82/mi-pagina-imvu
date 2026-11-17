@@ -429,31 +429,69 @@
 </div>
 
   
-<!-- SEGUNDA CAJA: MARQUESINA DE PRODUCTOS -->
+<!-- SEGUNDA CAJA: MARQUESINA OFICIAL DE PRODUCTOS CREATOR -->
 <div class="imvu-marquee-card">
   <div class="imvu-divider" style="margin: 0 10px 15px;">
     <div class="imvu-divider-line"></div>
-    <div class="imvu-status-badge"> • Catálogo • </div>
+    <div class="imvu-status-badge">• Catálogo •</div>
     <div class="imvu-divider-line"></div>
   </div>
 
-  <div class="marquee-frame-box">
-    <iframe id="panelProductosFrame" src="about:blank" scrolling="auto"></iframe>
+  <div class="marquee-frame-box" style="height: 100px; display: flex; align-items: center; padding: 0 10px;">
+    <style>
+      #products-marquee-JLHun [id$="_panel_header"],
+      #products-marquee-JLHun br {
+        display: none !important;
+      }
+      #products-marquee-JLHun .productbox {
+        width: 100px !important;
+        height: 80px !important;
+        margin: 0 6px !important;
+        float: none !important;
+        display: inline-block !important;
+      }
+      #products-marquee-JLHun .productbox img {
+        width: 100px !important;
+        height: 80px !important;
+        border-radius: 8px !important;
+        border: 1px solid #4a192e !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      #products-marquee-JLHun .productbox img:hover {
+        transform: scale(1.06);
+        border-color: #ff1e56 !important;
+      }
+      #products-marquee-JLHun table {
+        width: max-content !important;
+      }
+      #products-marquee-JLHun {
+        width: 100% !important;
+        height: 84px !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+      #products-marquee-JLHun > div {
+        padding-left: 100% !important;
+        width: max-content !important;
+        animation: marquee_JLHun 55s linear infinite !important;
+      }
+      #products-marquee-JLHun > div:hover {
+        animation-play-state: paused !important;
+      }
+      @keyframes marquee_JLHun {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-100%, 0); }
+      }
+    </style>
+
+    <div id="products-marquee-JLHun">
+      <script src="https://gaf210.gafcodes.com/newprodsbanner/filtered_dev_panel.js.php?dev_id=38638463&pn=new&q=25"></script>
+    </div>
   </div>
 </div>
 
-
-<script>
-  // Cargar URL del panel de productos de IMVU de forma segura
-  (function() {
-    var frame = document.getElementById('panelProductosFrame');
-    if (frame) {
-      // Cambia este enlace si tienes otra URL directa de tu panel
-      frame.src = 'https://' + '://imvu.com';
-    }
-  })();
-
-</script>
   
 <script>
   // Cargar reproductor de YouTube dinámicamente
