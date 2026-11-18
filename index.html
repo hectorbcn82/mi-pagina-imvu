@@ -662,9 +662,17 @@
       <a href="#especial" onclick="abrirModalSymbiote('modalEspecial'); return false;" class="imvu-btn">Alguien Especial</a>
     </div>
 
-    <div class="imvu-avatar-frame">
-      <img src="Avatar.gif" class="imvu-avatar" alt="Avatar">
+    <!-- Columna Central: Avatar + Botón Mis Insignias -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <div class="imvu-avatar-frame">
+        <img src="Avatar.gif" class="imvu-avatar" alt="Avatar">
+      </div>
+      
+      <a href="#insignias" onclick="abrirModalSymbiote('modalInsignias'); return false;" class="imvu-status-badge" style="text-decoration: none; cursor: pointer; transition: all 0.25s ease;" onmouseover="this.style.borderColor='#ff1e56'; this.style.color='#ffffff'; this.style.boxShadow='0 0 18px rgba(255,30,86,0.5)';" onmouseout="this.style.borderColor='#4a192e'; this.style.color='#e0a3bc'; this.style.boxShadow='0 0 12px rgba(74,25,46,0.5)';">
+        • Mis Insignias •
+      </a>
     </div>
+
 
     <div class="imvu-btn-col">
       <a href="#perfil" onclick="abrirModalSymbiote('modalPerfilSymbiote'); return false;" class="imvu-btn">Perfil</a>
@@ -893,6 +901,28 @@
   </div>
 </div>
 
+
+<!-- 7. VENTANA FLOTANTE: MIS INSIGNIAS -->
+<div id="modalInsignias" class="symbiote-modal-overlay" onclick="cerrarModalSymbiote('modalInsignias')">
+  <div class="symbiote-modal-box" onclick="event.stopPropagation()" style="max-width: 960px; width: 95%;">
+    <a href="#cerrar" onclick="cerrarModalSymbiote('modalInsignias'); return false;" class="symbiote-modal-close">✕</a>
+
+    <div class="imvu-divider" style="margin: 5px 15px 15px;">
+      <div class="imvu-divider-line"></div>
+      <div class="imvu-status-badge">• Mis Insignias •</div>
+      <div class="imvu-divider-line"></div>
+    </div>
+
+    <div style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #381624; background: #090507; padding: 5px;">
+      <iframe id="frameInsignias" src="about:blank" width="920" height="451" frameborder="0" scrolling="auto" style="display: block; margin: 0 auto; border-radius: 8px;"></iframe>
+    </div>
+
+    <a href="https://imvu.com" target="_blank" class="symbiote-action-btn" style="max-width: 320px; margin: 15px auto 0;">🏆 Ver Insignias en Perfil IMVU</a>
+  </div>
+</div>
+
+
+  
 <script>
   // Abrir y cerrar cualquier ventana flotante estilo Symbionte
   function abrirModalSymbiote(idModal) {
@@ -909,6 +939,15 @@
     }
   }
 
+  // Cargar panel oficial de insignias de IMVU
+  (function() {
+    var fInsignias = document.getElementById('frameInsignias');
+    if (fInsignias) {
+      fInsignias.src = 'https://' + 'es.imvu.com/catalog/web_embed_panel.php?panel=badges_panel&width=920&height=451';
+    }
+  })();
+
+  
   // Cargar reproductor de YouTube dinámicamente
   (function() {
     var ytFrame = document.querySelector('.imvu-yt-box iframe');
