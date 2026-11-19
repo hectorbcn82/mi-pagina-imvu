@@ -301,17 +301,32 @@
     .rastro-telarana {
       position: fixed;
       pointer-events: none;
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       z-index: 999999;
-      transform: translate(-50%, -50%);
-      animation: desvanecerWeb 0.8s linear forwards;
+      filter: drop-shadow(0 0 6px rgba(255, 30, 86, 0.65));
+      animation: desvanecerWeb 0.85s ease-out forwards;
     }
 
     @keyframes desvanecerWeb {
-      0% { opacity: 0.9; transform: translate(-50%, -50%) scale(0.8); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.3); }
+      0% { opacity: 0.95; transform: translate(-50%, -50%) scale(0.75) rotate(var(--rot, 0deg)); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.35) rotate(calc(var(--rot, 0deg) + 25deg)); }
     }
+
+    /* Chispas simbióticas que suelta el cursor al moverse */
+    .rastro-chispa {
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 999999;
+      animation: flotarChispaCursor 0.9s ease-out forwards;
+    }
+
+    @keyframes flotarChispaCursor {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2); }
+    }
+
 
     /* Pie de tarjeta */
     .imvu-footer {
@@ -1084,31 +1099,59 @@
     }
   })();
 
-  // Rastro de telaraña al mover el ratón
+  // Rastro de telaraña con brillo neón + chispas simbióticas al mover el ratón
   (function() {
     var urlTelarana = 'Telara%C3%B1a%20Cursor.png';
     var ultimoTiempo = 0;
+    var coloresChispa = ['#8f1d4c', '#b82962', '#ff1e56', '#e0a3bc'];
 
     document.addEventListener('mousemove', function(e) {
       var ahora = Date.now();
-      if (ahora - ultimoTiempo < 45) return;
+      if (ahora - ultimoTiempo < 40) return;
       ultimoTiempo = ahora;
 
+      // 1. Telaraña con rotación aleatoria y brillo magenta
       var web = document.createElement('img');
       web.src = urlTelarana;
       web.className = 'rastro-telarana';
       web.style.left = e.clientX + 'px';
       web.style.top = e.clientY + 'px';
-
+      web.style.setProperty('--rot', Math.floor(Math.random() * 360) + 'deg');
       document.body.appendChild(web);
 
       setTimeout(function() {
-        if (web.parentNode) {
-          web.parentNode.removeChild(web);
-        }
-      }, 800);
+        if (web.parentNode) web.parentNode.removeChild(web);
+      }, 850);
+
+      // 2. Dos partículas burdeos/neón flotando desde el cursor
+      for (var i = 0; i < 2; i++) {
+        var spark = document.createElement('span');
+        spark.className = 'rastro-chispa';
+        var size = (Math.random() * 3.5 + 2) + 'px';
+        var color = coloresChispa[Math.floor(Math.random() * coloresChispa.length)];
+        var dx = (Math.random() - 0.5) * 45 + 'px';
+        var dy = -(Math.random() * 35 + 10) + 'px'; // Flotan hacia arriba como el fondo
+
+        spark.style.width = size;
+        spark.style.height = size;
+        spark.style.backgroundColor = color;
+        spark.style.boxShadow = '0 0 8px ' + color;
+        spark.style.left = e.clientX + 'px';
+        spark.style.top = e.clientY + 'px';
+        spark.style.setProperty('--dx', dx);
+        spark.style.setProperty('--dy', dy);
+
+        document.body.appendChild(spark);
+
+        (function(el) {
+          setTimeout(function() {
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }, 900);
+        })(spark);
+      }
     });
   })();
+
 </script>
 
 <script>
