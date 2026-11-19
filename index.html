@@ -130,119 +130,6 @@
       display: block;
     }
 
-    
-    .venom-avatar-box {
-  position: relative;
-  width: 165px;
-  height: 225px;
-  border-radius: 11px;
-  overflow: hidden;
-  background-color: #08040a;
-}
-
-.venom-avatar-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.venom-avatar-box:hover img {
-  transform: scale(1.05);
-}
-
-.venom-avatar-vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 42%, transparent 50%, rgba(10, 4, 8, 0.82) 100%);
-  box-shadow: inset 0 0 18px rgba(255, 30, 86, 0.4);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.venom-eye-glow {
-  position: absolute;
-  top: 29%;
-  right: 25%;
-  width: 36px;
-  height: 26px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(255, 30, 86, 0.3) 55%, transparent 75%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 3;
-  animation: pulsoOjoVenom 2.6s ease-in-out infinite alternate;
-}
-
-.venom-spark {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: #ff1e56;
-  border-radius: 50%;
-  box-shadow: 0 0 6px #ff1e56, 0 0 10px #b82962;
-  pointer-events: none;
-  z-index: 3;
-  animation: subirChispaAvatar 4s linear infinite;
-}
-
-/* Contenedor posicionado exactamente sobre el ojo blanco del simbionte */
-.venom-eye-real {
-  position: absolute;
-  top: 29%;      /* Sube o baja este % si necesitas centrarlo más */
-  right: 22%;    /* Mueve izquierda o derecha este % para clavarlo */
-  width: 34px;
-  height: 44px;
-  pointer-events: none;
-  z-index: 3;
-  mix-blend-mode: screen; /* Funde la luz solo con el blanco del ojo */
-  animation: latidoOjoReal 3s ease-in-out infinite alternate;
-}
-
-@keyframes latidoOjoReal {
-  0% { 
-    opacity: 0.15; 
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-  }
-  100% { 
-    opacity: 0.75; 
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 14px rgba(255, 30, 86, 0.6));
-  }
-}
-    
-.venom-avatar-tag {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, rgba(33, 20, 26, 0.92) 0%, rgba(15, 8, 12, 0.95) 100%);
-  border: 1px solid #8f2d56;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.2px;
-  padding: 3px 14px;
-  border-radius: 12px;
-  text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.85), 0 0 12px rgba(255, 30, 86, 0.45);
-  pointer-events: none;
-  white-space: nowrap;
-  z-index: 4;
-}
-
-@keyframes pulsoOjoVenom {
-  0% { opacity: 0.2; transform: scale(0.85); }
-  100% { opacity: 0.9; transform: scale(1.18); }
-}
-
-@keyframes subirChispaAvatar {
-  0% { transform: translateY(220px) scale(0.6); opacity: 0; }
-  30% { opacity: 0.95; }
-  80% { opacity: 0.8; }
-  100% { transform: translateY(-15px) scale(1.2); opacity: 0; }
-}
-    
     /* Botones interactivos mejorados con brillo y elevación */
     .imvu-btn {
       text-decoration: none;
@@ -777,37 +664,9 @@
 
     <!-- Columna Central: Avatar + Botón Mis Insignias -->
     <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-<div class="imvu-avatar-frame">
-  <div class="venom-avatar-box">
-    <img src="Avatar.gif?v=2" alt="Avatar">
-
-    <!-- Destello con la forma curva real del ojo de Venom -->
-
-    <svg class="venom-eye-real" viewBox="0 0 40 50">
-      <defs>
-        <radialGradient id="brilloOjoCurvo" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
-          <stop offset="65%" stop-color="#ffe6f0" stop-opacity="0.45"/>
-          <stop offset="100%" stop-color="#ff1e56" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <!-- Silueta curvada inclinada hacia arriba a la derecha -->
-      <path d="M 6,36 Q 10,12 34,6 Q 32,32 14,42 Q 6,42 6,36 Z" fill="url(#brilloOjoCurvo)"/>
-    </svg>
-
-    <span class="venom-spark" style="left: 18%; animation-duration: 3.8s; animation-delay: 0.2s;"></span>
-    <span class="venom-spark" style="left: 78%; animation-duration: 4.5s; animation-delay: 1.4s;"></span>
-    <span class="venom-spark" style="left: 48%; animation-duration: 3.2s; animation-delay: 2.3s;"></span>
-
-    <svg viewBox="0 0 165 225" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:3;">
-      <path d="M 0,0 Q 25,18 55,10 M 0,0 Q 15,32 8,62 M 12,8 Q 22,22 8,32" fill="none" stroke="rgba(224,163,188,0.28)" stroke-width="1"/>
-      <path d="M 165,0 Q 140,18 110,10 M 165,0 Q 150,32 157,62 M 153,8 Q 143,22 157,32" fill="none" stroke="rgba(224,163,188,0.28)" stroke-width="1"/>
-    </svg>
-
-    <div class="venom-avatar-vignette"></div>
-  </div>
-</div>
-
+      <div class="imvu-avatar-frame">
+        <img src="Avatar.gif" class="imvu-avatar" alt="Avatar">
+      </div>
       
       <a href="#insignias" onclick="abrirModalSymbiote('modalInsignias'); return false;" class="imvu-status-badge" style="text-decoration: none; cursor: pointer; transition: all 0.25s ease;" onmouseover="this.style.borderColor='#ff1e56'; this.style.color='#ffffff'; this.style.boxShadow='0 0 18px rgba(255,30,86,0.5)';" onmouseout="this.style.borderColor='#4a192e'; this.style.color='#e0a3bc'; this.style.boxShadow='0 0 12px rgba(74,25,46,0.5)';">
         • Mis Insignias •
