@@ -1188,29 +1188,6 @@
     }
   })();
 
-  // Rastro de telaraña con brillo neón + chispas simbióticas al mover el ratón
-  (function() {
-    var urlTelarana = 'Telara%C3%B1a%20Cursor.png';
-    var ultimoTiempo = 0;
-    var coloresChispa = ['#8f1d4c', '#b82962', '#ff1e56', '#e0a3bc'];
-
-    document.addEventListener('mousemove', function(e) {
-      var ahora = Date.now();
-      if (ahora - ultimoTiempo < 40) return;
-      ultimoTiempo = ahora;
-
-      // 1. Telaraña con rotación aleatoria y brillo magenta
-      var web = document.createElement('img');
-      web.src = urlTelarana;
-      web.className = 'rastro-telarana';
-      web.style.left = e.clientX + 'px';
-      web.style.top = e.clientY + 'px';
-      web.style.setProperty('--rot', Math.floor(Math.random() * 360) + 'deg');
-      document.body.appendChild(web);
-
-      setTimeout(function() {
-        if (web.parentNode) web.parentNode.removeChild(web);
-      }, 850);
 
       // 2. Dos partículas burdeos/neón flotando desde el cursor
       for (var i = 0; i < 2; i++) {
