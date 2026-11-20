@@ -593,8 +593,44 @@
       box-shadow: 0 6px 24px rgba(255, 30, 86, 0.55);
       transform: translateY(-2px);
     }
+
+    /* SUSTITUYE LOS 10 BOTONES PIXELADOS POR EL ESTILO SYMBIONTE */
+    .badge-symbiote-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 102px;
+      height: 24px;
+      border-radius: 7px;
+      background: linear-gradient(180deg, #1a0d13 0%, #0a0508 100%);
+      border: 1px solid #8f1d4c;
+      box-shadow: 0 0 10px rgba(255, 30, 86, 0.35), inset 0 0 6px rgba(143, 29, 76, 0.45);
+      color: #f5e6ec;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .badge-symbiote-btn::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #d8ffea, #6ee7b7 55%, #10b981 100%);
+      box-shadow: 0 0 6px #6ee7b7, 0 0 12px rgba(110, 231, 183, 0.8);
+    }
+
+    a:hover .badge-symbiote-btn {
+      border-color: #ff1e56;
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(255, 30, 86, 0.75), inset 0 0 8px rgba(255, 30, 86, 0.4);
+    }
   </style>
 </head>
+
 <body>
 
 <!-- COLMILLOS SUPERIORES CURVADOS CON GOTAS DE SIMBIONTE NEGRO -->
@@ -962,9 +998,9 @@
   </div>
 </div>
 
-<!-- 6. VENTANA FLOTANTE: FOTOS -->
+<!-- 6. VENTANA FLOTANTE: FOTOS (CARGA AUTOMÁTICA DESDE CARPETA "Fotos") -->
 <div id="modalFotos" class="symbiote-modal-overlay" onclick="cerrarModalSymbiote('modalFotos')">
-  <div class="symbiote-modal-box" onclick="event.stopPropagation()">
+  <div class="symbiote-modal-box" onclick="event.stopPropagation()" style="max-width: 680px; width: 95%;">
     <a href="#cerrar" onclick="cerrarModalSymbiote('modalFotos'); return false;" class="symbiote-modal-close">✕</a>
 
     <div class="imvu-divider" style="margin: 5px 15px 15px;">
@@ -973,11 +1009,21 @@
       <div class="imvu-divider-line"></div>
     </div>
 
-    <div class="symbiote-bio">
-      Explora mis capturas, edits y álbumes oficiales directamente en mi galería de IMVU.
+    <div class="symbiote-bio" style="margin-bottom: 15px;">
+      Mis capturas y edits oficiales. Pulsa en cualquier imagen para ampliarla:
     </div>
 
-    <a href="https://imvu.com" target="_blank" class="symbiote-action-btn">📷 Abrir Álbum de Fotos</a>
+    <!-- Visor ampliado -->
+    <div id="visorFotoGrande" style="display: none; margin-bottom: 18px; text-align: center;">
+      <img id="imgFotoGrande" src="" alt="Vista ampliada" style="max-width: 100%; max-height: 420px; border-radius: 12px; border: 1px solid #ff1e56; box-shadow: 0 0 25px rgba(255, 30, 86, 0.45);">
+      <br>
+      <button type="button" onclick="document.getElementById('visorFotoGrande').style.display='none';" class="symbiote-action-btn" style="max-width: 220px; margin: 12px auto 0; padding: 8px 14px; cursor: pointer;">✕ Cerrar Vista Grande</button>
+    </div>
+
+    <!-- Contenedor donde se cargarán automáticamente todas tus fotos -->
+    <div id="galeriaAutoFotos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; padding: 5px;">
+      <div style="color: #e0a3bc; font-size: 12px; grid-column: 1 / -1; padding: 15px;">Cargando galería desde GitHub...</div>
+    </div>
   </div>
 </div>
 
@@ -1002,61 +1048,71 @@
   <!-- Badge 1 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-1" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages02.imvu.com/userdata/38638463/badge_a07c38a326789a1ba2453c48a07c2bcd.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 2 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-2" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages01.imvu.com/userdata/38638463/badge_d61d479cf71c398e3406a1e5d9e5a98a.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 3 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-3" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages05.imvu.com/userdata/38638463/badge_9a0569467ccaa3bb1ce156c20be23c61.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 4 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-4" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages01.imvu.com/userdata/38638463/badge_3a8b565569d41a2614d828a4c6e6b812.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 5 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-5" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages02.imvu.com/userdata/38638463/badge_6a17ea030c6abb6223e0cb5fb197f2f0.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 6 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-6" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages01.imvu.com/userdata/38638463/badge_1478b96b98fa76001343f48f124da9a4.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 7 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-7" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages02.imvu.com/userdata/38638463/badge_501162a487a16a35cd97f58d929dc6aa.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 8 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-8" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages02.imvu.com/userdata/38638463/badge_bdc1cff1b4388a1fa21eb8cf8a2a47db.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 9 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-9" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages02.imvu.com/userdata/38638463/badge_2ad6ca9439b438ce20c13632ccefac60.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
 
   <!-- Badge 10 -->
   <a href="https://imvu.com/catalog/web_manage_badges.php?action=request&badge_id=badge-38638463-10" target="_blank" style="text-decoration: none; background: #160c11; border: 1px solid #4a192e; border-radius: 10px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.borderColor='#ff1e56'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#4a192e'; this.style.transform='translateY(0)';">
     <img src="https://userimages03.imvu.com/userdata/38638463/badge_407f1d6b0ce4f7cc7828e97e3f2759ef.gif" alt="[LoC0o]" style="width: 24px; height: 24px;">
-    <span style="display: block; width: 101px; height: 22px; background: url('https://i.ibb.co/0jxW3SLX/badgepanel2.png') no-repeat 0 0;"></span>
+    <span class="badge-symbiote-btn">PEDIDO</span>
+
   </a>
     </div>
 
@@ -1327,6 +1383,67 @@
   <path d="M 1328,90 Q 1344,48 1336,2 Q 1365,42 1380,90 Z" fill="url(#garraInf)"/>
   <path d="M 1395,90 Q 1405,55 1401,18 Q 1421,50 1433,90 Z" fill="url(#garraInf)"/>
 </svg>
+
+
+<script>
+  // Cargar automáticamente todas las imágenes de la carpeta "Fotos" en GitHub
+  (function() {
+    var contenedor = document.getElementById('galeriaAutoFotos');
+    if (!contenedor) return;
+
+    var usuario = 'hectorbcn82';
+    var repo = 'mi-pagina-imvu';
+    var carpeta = 'Fotos';
+    var apiUrl = 'https://' + '://github.com' + usuario + '/' + repo + '/contents/' + carpeta;
+
+    fetch(apiUrl)
+      .then(function(res) { return res.json(); })
+      .then(function(archivos) {
+        if (!Array.isArray(archivos)) {
+          contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">No se encontraron imágenes en la carpeta Fotos.</div>';
+          return;
+        }
+
+        var imagenes = archivos.filter(function(item) {
+          return item.type === 'file' && /\.(jpe?g|png|gif|webp)$/i.test(item.name);
+        });
+
+        if (imagenes.length === 0) {
+          contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">La carpeta Fotos aún está vacía.</div>';
+          return;
+        }
+
+        contenedor.innerHTML = '';
+        imagenes.forEach(function(imgFile) {
+          var rutaSegura = carpeta + '/' + encodeURIComponent(imgFile.name);
+          var tarjeta = document.createElement('div');
+          tarjeta.style.cssText = 'cursor: pointer; border-radius: 10px; overflow: hidden; border: 1px solid #4a192e; background: #090507; transition: 0.25s;';
+          tarjeta.onmouseover = function() { this.style.borderColor = '#ff1e56'; this.style.transform = 'scale(1.03)'; };
+          tarjeta.onmouseout = function() { this.style.borderColor = '#4a192e'; this.style.transform = 'scale(1)'; };
+          tarjeta.onclick = function() {
+            var visor = document.getElementById('visorFotoGrande');
+            document.getElementById('imgFotoGrande').src = rutaSegura;
+            visor.style.display = 'block';
+            visor.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          };
+
+          var img = document.createElement('img');
+          img.src = rutaSegura;
+          img.alt = imgFile.name;
+          img.loading = 'lazy';
+          img.style.cssText = 'width: 100%; height: 140px; object-fit: cover; display: block;';
+
+          tarjeta.appendChild(img);
+          contenedor.appendChild(tarjeta);
+        });
+      })
+      .catch(function() {
+        contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">Error al conectar con la carpeta de GitHub.</div>';
+      });
+  })();
+</script>
+
+
 
 </body>
 </html>
