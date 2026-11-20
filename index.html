@@ -1133,9 +1133,6 @@
   </div>
 </div>
 
-
-
-  
 <script>
   // Abrir y cerrar cualquier ventana flotante estilo Symbionte
   function abrirModalSymbiote(idModal) {
@@ -1152,33 +1149,32 @@
     }
   }
 
-  // Cargar panel oficial de insignias de IMVU
-  (function() {
-    var fInsignias = document.getElementById('frameInsignias');
-    if (fInsignias) {
-      fInsignias.src = 'https://' + 'es.imvu.com/catalog/web_embed_panel.php?panel=badges_panel&width=920&height=451';
-    }
-  })();
-
-  
   // Cargar reproductor de YouTube dinámicamente
   (function() {
     var ytFrame = document.querySelector('.imvu-yt-box iframe');
     if (ytFrame) {
       var vid = ytFrame.getAttribute('data-yt');
-      ytFrame.src = 'https://www.youtube.com/embed/' + vid + '?modestbranding=1&fs=0&rel=0&hd=1&disablekb=0&showinfo=0&iv_load_policy=0&enablejsapi=1&autoplay=1&loop=1&controls=0&playlist=' + vid;
+      ytFrame.src = 'https://youtube.com' + vid + '?modestbranding=1&fs=0&rel=0&hd=1&disablekb=0&showinfo=0&iv_load_policy=0&enablejsapi=1&autoplay=1&loop=1&controls=0&playlist=' + vid;
     }
   })();
 
+  // Partículas burdeos/neón flotando desde el cursor
+  (function() {
+    var coloresChispa = ['#8f1d4c', '#b82962', '#ff1e56', '#5e163b', '#e0a3bc'];
+    var ultimoTiempo = 0;
 
-// 2. Dos partículas burdeos/neón flotando desde el cursor
+    document.addEventListener('mousemove', function(e) {
+      var ahora = Date.now();
+      if (ahora - ultimoTiempo < 35) return; // Evita saturar la pantalla de elementos
+      ultimoTiempo = ahora;
+
       for (var i = 0; i < 2; i++) {
         var spark = document.createElement('span');
         spark.className = 'rastro-chispa';
         var size = (Math.random() * 3.5 + 2) + 'px';
         var color = coloresChispa[Math.floor(Math.random() * coloresChispa.length)];
         var dx = (Math.random() - 0.5) * 45 + 'px';
-        var dy = -(Math.random() * 35 + 10) + 'px'; // Flotan hacia arriba como el fondo
+        var dy = -(Math.random() * 35 + 10) + 'px';
 
         spark.style.width = size;
         spark.style.height = size;
@@ -1199,7 +1195,6 @@
       }
     });
   })();
-
 </script>
 
 <script>
