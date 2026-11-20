@@ -1149,14 +1149,14 @@
     }
   }
 
-  // Cargar reproductor de YouTube dinámicamente
-  (function() {
-    var ytFrame = document.querySelector('.imvu-yt-box iframe');
-    if (ytFrame) {
-      var vid = ytFrame.getAttribute('data-yt');
-      ytFrame.src = 'https://youtube.com' + vid + '?modestbranding=1&fs=0&rel=0&hd=1&disablekb=0&showinfo=0&iv_load_policy=0&enablejsapi=1&autoplay=1&loop=1&controls=0&playlist=' + vid;
-    }
-  })();
+// Cargar reproductor de YouTube dinámicamente desde data-yt
+(function() {
+  var ytFrame = document.querySelector('.imvu-yt-box iframe');
+  if (ytFrame) {
+    var vid = ytFrame.getAttribute('data-yt');
+    ytFrame.src = 'https://youtube.com' + vid + '?modestbranding=1&fs=0&rel=0&hd=1&disablekb=0&showinfo=0&iv_load_policy=0&enablejsapi=1&autoplay=1&loop=1&controls=0&playlist=' + vid;
+  }
+})();
 
   // Partículas burdeos/neón flotando desde el cursor
   (function() {
