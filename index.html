@@ -1170,20 +1170,8 @@
     }
   })();
 
-      // 1. Telaraña con rotación aleatoria y brillo magenta
-      var web = document.createElement('img');
-      web.src = urlTelarana;
-      web.className = 'rastro-telarana';
-      web.style.left = e.clientX + 'px';
-      web.style.top = e.clientY + 'px';
-      web.style.setProperty('--rot', Math.floor(Math.random() * 360) + 'deg');
-      document.body.appendChild(web);
 
-      setTimeout(function() {
-        if (web.parentNode) web.parentNode.removeChild(web);
-      }, 850);
-
-      // 2. Dos partículas burdeos/neón flotando desde el cursor
+// 2. Dos partículas burdeos/neón flotando desde el cursor
       for (var i = 0; i < 2; i++) {
         var spark = document.createElement('span');
         spark.className = 'rastro-chispa';
