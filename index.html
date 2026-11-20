@@ -23,7 +23,7 @@
     .imvu-wrapper {
       background: linear-gradient(180deg, #141013 0%, #0d0b0d 100%);
       max-width: 750px;
-      margin: 32px auto 30px;
+      margin: 25px auto 30px;
       border-radius: 18px;
       position: relative;
       overflow: visible !important;
@@ -289,32 +289,13 @@
     @keyframes webSwayReverse { 0% { transform: scale(1.04) rotate(0deg); } 100% { transform: scale(0.98) rotate(-3deg); } }
     @keyframes pulseGlow { 0% { filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.2)); } 100% { filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.7)); } }
 
-    /* CURSORES VECTORIALES SIMBIONTE (GARRA + OJO VENOM) */
+    /* Cursores personalizados */
     body, html {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ff1e56'/%3E%3Cstop offset='45%25' stop-color='%231a0810'/%3E%3Cstop offset='100%25' stop-color='%23050204'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M2 2 L24 12 L15 16 L21 26 L17 28 L11 18 L5 24 Z' fill='url(%23g)' stroke='%23ff1e56' stroke-width='1.5' stroke-linejoin='round'/%3E%3Ccircle cx='3' cy='3' r='1.5' fill='%23ffffff'/%3E%3C/svg%3E") 2 2, auto !important;
+      cursor: url('Cursor%20Cara%20Venom.png'), auto !important;
     }
 
-    a, a:hover, button, .imvu-btn, [onclick] {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='34' height='34' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='14' fill='%2308040a' stroke='%23ff1e56' stroke-width='1.8'/%3E%3Cpath d='M7 13 Q12 22 16 19 Q13 13 7 13 Z' fill='%23ffffff'/%3E%3Cpath d='M27 13 Q22 22 18 19 Q21 13 27 13 Z' fill='%23ffffff'/%3E%3C/svg%3E") 17 17, pointer !important;
-    }
-
-    /* Onda de energía simbionte al hacer clic */
-    .venom-click-wave {
-      position: fixed;
-      pointer-events: none;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      border: 2px solid #ff1e56;
-      box-shadow: 0 0 12px #ff1e56, inset 0 0 8px #8f1d4c;
-      transform: translate(-50%, -50%);
-      z-index: 9999999;
-      animation: ondaClickVenom 0.55s ease-out forwards;
-    }
-
-    @keyframes ondaClickVenom {
-      0% { width: 10px; height: 10px; opacity: 1; }
-      100% { width: 55px; height: 55px; opacity: 0; border-width: 1px; }
+    a, a:hover, button, .imvu-btn {
+      cursor: url('Cursor%20Logo%20Venom.png'), pointer !important;
     }
 
     .rastro-telarana {
@@ -345,6 +326,7 @@
       0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
       100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2); }
     }
+
 
     /* Pie de tarjeta */
     .imvu-footer {
@@ -380,7 +362,7 @@
     .imvu-marquee-card {
       background: linear-gradient(180deg, #141013 0%, #0d0b0d 100%);
       max-width: 750px;
-      margin: 28px auto 55px;
+      margin: 28px auto 35px;
       border-radius: 18px;
       position: relative;
       border: 1px solid #381624;
@@ -663,7 +645,7 @@
 <body>
 
 <!-- COLMILLOS SUPERIORES CURVADOS CON GOTAS DE SIMBIONTE NEGRO -->
-<svg class="screen-fangs-top" viewBox="0 0 1440 240" preserveAspectRatio="none" style="height: 115px;">
+<svg class="screen-fangs-top" viewBox="0 0 1440 240" preserveAspectRatio="none" style="height: 225px;">
   <defs>
     <linearGradient id="garraSup" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#a89fb0"/>
@@ -1188,6 +1170,29 @@
     }
   })();
 
+  // Rastro de telaraña con brillo neón + chispas simbióticas al mover el ratón
+  (function() {
+    var urlTelarana = 'Telara%C3%B1a%20Cursor.png';
+    var ultimoTiempo = 0;
+    var coloresChispa = ['#8f1d4c', '#b82962', '#ff1e56', '#e0a3bc'];
+
+    document.addEventListener('mousemove', function(e) {
+      var ahora = Date.now();
+      if (ahora - ultimoTiempo < 40) return;
+      ultimoTiempo = ahora;
+
+      // 1. Telaraña con rotación aleatoria y brillo magenta
+      var web = document.createElement('img');
+      web.src = urlTelarana;
+      web.className = 'rastro-telarana';
+      web.style.left = e.clientX + 'px';
+      web.style.top = e.clientY + 'px';
+      web.style.setProperty('--rot', Math.floor(Math.random() * 360) + 'deg');
+      document.body.appendChild(web);
+
+      setTimeout(function() {
+        if (web.parentNode) web.parentNode.removeChild(web);
+      }, 850);
 
       // 2. Dos partículas burdeos/neón flotando desde el cursor
       for (var i = 0; i < 2; i++) {
@@ -1364,7 +1369,7 @@
 
 
 <!-- COLMILLOS INFERIORES CURVADOS FIJOS EN EL PIE -->
-<svg class="screen-fangs-bottom" viewBox="0 0 1440 90" preserveAspectRatio="none" style="position: fixed; bottom: 0; left: 0; width: 100vw; height: 42px; z-index: 9999; pointer-events: none; display: block; filter: drop-shadow(0 -6px 8px rgba(0, 0, 0, 0.9));">
+<svg class="screen-fangs-bottom" viewBox="0 0 1440 90" preserveAspectRatio="none" style="position: fixed; bottom: 0; left: 0; width: 100vw; height: 85px; z-index: 9999; pointer-events: none; display: block; filter: drop-shadow(0 -6px 8px rgba(0, 0, 0, 0.9));">
   <defs>
     <linearGradient id="garraInf" x1="0" y1="1" x2="0" y2="0">
       <stop offset="0%" stop-color="#a89fb0"/>
@@ -1454,19 +1459,5 @@
   })();
 </script>
 
-<script>
-  // Onda de impacto neón burdeos al hacer clic
-  document.addEventListener('mousedown', function(e) {
-    var onda = document.createElement('span');
-    onda.className = 'venom-click-wave';
-    onda.style.left = e.clientX + 'px';
-    onda.style.top = e.clientY + 'px';
-    document.body.appendChild(onda);
-    setTimeout(function() {
-      if (onda.parentNode) onda.parentNode.removeChild(onda);
-    }, 550);
-  });
-</script>
-	
 </body>
 </html>
