@@ -1386,21 +1386,24 @@
 
 
 <script>
-  // Cargar automáticamente todas las imágenes de la carpeta "Fotos" en GitHub
+  // Lector automático de la carpeta "Fotos" de hectorbcn82/mi-pagina-imvu
   (function() {
     var contenedor = document.getElementById('galeriaAutoFotos');
     if (!contenedor) return;
 
-    var usuario = 'hectorbcn82';
-    var repo = 'mi-pagina-imvu';
-    var carpeta = 'Fotos';
-    var apiUrl = 'https://' + '://github.com' + usuario + '/' + repo + '/contents/' + carpeta;
+    var host = ['api', 'github', 'com'].join('.');
+    var endpoint = 'https://' + host + '/repos/hectorbcn82/mi-pagina-imvu/contents/Fotos';
 
-    fetch(apiUrl)
-      .then(function(res) { return res.json(); })
+    fetch(endpoint)
+      .then(function(respuesta) {
+        if (!respuesta.ok) {
+          throw new Error('Código ' + respuesta.status);
+        }
+        return respuesta.json();
+      })
       .then(function(archivos) {
         if (!Array.isArray(archivos)) {
-          contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">No se encontraron imágenes en la carpeta Fotos.</div>';
+          contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">No se encontraron archivos en la carpeta Fotos.</div>';
           return;
         }
 
@@ -1409,26 +1412,26 @@
         });
 
         if (imagenes.length === 0) {
-          contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">La carpeta Fotos aún está vacía.</div>';
+          contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">La carpeta Fotos no tiene imágenes todavía.</div>';
           return;
         }
 
         contenedor.innerHTML = '';
         imagenes.forEach(function(imgFile) {
-          var rutaSegura = carpeta + '/' + encodeURIComponent(imgFile.name);
+          var ruta = 'Fotos/' + encodeURIComponent(imgFile.name);
           var tarjeta = document.createElement('div');
           tarjeta.style.cssText = 'cursor: pointer; border-radius: 10px; overflow: hidden; border: 1px solid #4a192e; background: #090507; transition: 0.25s;';
           tarjeta.onmouseover = function() { this.style.borderColor = '#ff1e56'; this.style.transform = 'scale(1.03)'; };
           tarjeta.onmouseout = function() { this.style.borderColor = '#4a192e'; this.style.transform = 'scale(1)'; };
           tarjeta.onclick = function() {
             var visor = document.getElementById('visorFotoGrande');
-            document.getElementById('imgFotoGrande').src = rutaSegura;
+            document.getElementById('imgFotoGrande').src = ruta;
             visor.style.display = 'block';
             visor.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           };
 
           var img = document.createElement('img');
-          img.src = rutaSegura;
+          img.src = ruta;
           img.alt = imgFile.name;
           img.loading = 'lazy';
           img.style.cssText = 'width: 100%; height: 140px; object-fit: cover; display: block;';
@@ -1437,13 +1440,11 @@
           contenedor.appendChild(tarjeta);
         });
       })
-      .catch(function() {
-        contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">Error al conectar con la carpeta de GitHub.</div>';
+      .catch(function(err) {
+        contenedor.innerHTML = '<div style="color:#e0a3bc; font-size:12px; grid-column:1/-1;">Aviso de GitHub (' + err.message + '). Revisa que la carpeta se llame exactamente "Fotos" con F mayúscula.</div>';
       });
   })();
 </script>
-
-
 
 </body>
 </html>
