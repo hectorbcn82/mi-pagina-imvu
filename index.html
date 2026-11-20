@@ -289,30 +289,6 @@
     @keyframes webSwayReverse { 0% { transform: scale(1.04) rotate(0deg); } 100% { transform: scale(0.98) rotate(-3deg); } }
     @keyframes pulseGlow { 0% { filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.2)); } 100% { filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.7)); } }
 
-    /* Cursores personalizados */
-    body, html {
-      cursor: url('Cursor%20Cara%20Venom.png'), auto !important;
-    }
-
-    a, a:hover, button, .imvu-btn {
-      cursor: url('Cursor%20Logo%20Venom.png'), pointer !important;
-    }
-
-    .rastro-telarana {
-      position: fixed;
-      pointer-events: none;
-      width: 28px;
-      height: 28px;
-      z-index: 999999;
-      filter: drop-shadow(0 0 6px rgba(255, 30, 86, 0.65));
-      animation: desvanecerWeb 0.85s ease-out forwards;
-    }
-
-    @keyframes desvanecerWeb {
-      0% { opacity: 0.95; transform: translate(-50%, -50%) scale(0.75) rotate(var(--rot, 0deg)); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.35) rotate(calc(var(--rot, 0deg) + 25deg)); }
-    }
-
     /* Chispas simbióticas que suelta el cursor al moverse */
     .rastro-chispa {
       position: fixed;
@@ -326,7 +302,6 @@
       0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
       100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2); }
     }
-
 
     /* Pie de tarjeta */
     .imvu-footer {
