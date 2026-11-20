@@ -594,7 +594,7 @@
       transform: translateY(-2px);
     }
 
-    /* BOTONES DE PEDIDO: APAGADOS POR DEFECTO Y SE ENCIENDEN AL HACER CLIC */
+    /* BOTONES DE PEDIDO: APAGADOS POR DEFECTO Y SE ENCIENDEN AL PASAR EL RATÓN */
     .badge-symbiote-btn {
       display: inline-flex;
       align-items: center;
@@ -626,22 +626,17 @@
       transition: all 0.25s ease;
     }
 
-    /* Estado ENCENDIDO tras hacer clic */
-    .badge-symbiote-btn.encendido {
+    /* Encendido instantáneo al pasar el ratón por la tarjeta del badge */
+    a:hover .badge-symbiote-btn {
       border-color: #ff1e56;
       color: #ffffff;
       box-shadow: 0 0 14px rgba(255, 30, 86, 0.65), inset 0 0 8px rgba(143, 29, 76, 0.5);
     }
 
-    .badge-symbiote-btn.encendido::before {
+    a:hover .badge-symbiote-btn::before {
       background: radial-gradient(circle at 35% 35%, #d8ffea, #6ee7b7 55%, #10b981 100%);
       border-color: #6ee7b7;
       box-shadow: 0 0 6px #6ee7b7, 0 0 12px rgba(110, 231, 183, 0.9);
-    }
-
-    a:hover .badge-symbiote-btn {
-      border-color: #8f2d56;
-      color: #ffffff;
     }
 
   </style>
@@ -1464,18 +1459,5 @@
   })();
 </script>
 
-<script>
-  // Encender el LED verde del botón PEDIDO al hacer clic en una insignia
-  document.addEventListener('click', function(e) {
-    var enlaceBadge = e.target.closest('#modalInsignias a');
-    if (enlaceBadge) {
-      var botonLed = enlaceBadge.querySelector('.badge-symbiote-btn');
-      if (botonLed) {
-        botonLed.classList.add('encendido');
-      }
-    }
-  });
-</script>	
-	
 </body>
 </html>
