@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://w3.org">
+  <defs>
+    <linearGradient id="venomGarraGrad" x1="12" y1="8" x2="45" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8f1d4c"/>
+      <stop offset="45%" stop-color="#381624"/>
+      <stop offset="100%" stop-color="#08040a"/>
+    </linearGradient>
+    <filter id="glowGarra" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ff1e56" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <path d="M12 8L18 48L28 38L36 54L43 50L35 34L49 32L12 8Z" fill="url(#venomGarraGrad)" stroke="#ff1e56" stroke-width="3.2" stroke-linejoin="round" filter="url(#glowGarra)"/>
+  <circle cx="13" cy="9" r="3" fill="#ffffff"/>
+</svg>
