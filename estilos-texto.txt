@@ -1,0 +1,112 @@
+====================================================================
+GUÍA DE ESTILOS DE TEXTO HTML & CSS - EDICIÓN SYMBIONTE / GÓTICO
+Autor: LoC0o | Repositorio: hectorbcn82/mi-pagina-imvu
+====================================================================
+
+--------------------------------------------------------------------
+1. BLOQUE CSS (Pégalo dentro de tu etiqueta <style> ... </style>)
+--------------------------------------------------------------------
+
+/* Contenedor de texto base (Text Regular) */
+.caja-texto-estilo {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #9e8a90; /* Text Regular */
+}
+
+/* Bold (Negrita en rojo/burdeos) */
+.caja-texto-estilo b,
+.caja-texto-estilo strong {
+  color: #ff1e56;
+  font-weight: 700;
+}
+
+/* Italic (Cursiva en tono rosado claro) */
+.caja-texto-estilo i,
+.caja-texto-estilo em {
+  color: #e0a3bc;
+  font-style: italic;
+}
+
+/* Underline (Subrayado con línea neón) */
+.caja-texto-estilo u {
+  color: #f5e6ec;
+  text-decoration: underline;
+  text-decoration-color: #ff1e56;
+  text-underline-offset: 3px;
+}
+
+/* Strike (Tachado apagado) */
+.caja-texto-estilo s,
+.caja-texto-estilo del {
+  color: #5e4b51;
+  text-decoration: line-through;
+}
+
+/* Highlight (Resaltado con fondo y borde) */
+.caja-texto-estilo .highlight {
+  background-color: #591632;
+  color: #ffffff;
+  padding: 1px 6px;
+  border: 1px solid #ff1e56;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Extra: Texto con brillo Neón */
+.caja-texto-estilo .neon {
+  color: #ffffff;
+  text-shadow: 0 0 6px #ff1e56, 0 0 14px #8f1d4c;
+}
+
+/* Extra: Título estilo plantilla (como "AMAZING") */
+.titulo-estilo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-left: 2px solid #ff1e56;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+
+--------------------------------------------------------------------
+2. PLANTILLA HTML DE EJEMPLO (Pégalo donde quieras mostrar texto)
+--------------------------------------------------------------------
+
+<div class="caja-texto-estilo">
+  <div class="titulo-estilo">MI TÍTULO AQUÍ</div>
+
+  <!-- Línea de muestra completa -->
+  <p>
+    Text Regular - 
+    <b>Bold</b> - 
+    <i>Italic</i> - 
+    <u>underline</u> - 
+    <s>Strike</s> - 
+    <span class="highlight">highlight</span> - 
+    <span class="neon">Neon Glow</span>
+  </p>
+
+  <!-- Ejemplo de uso en una frase real -->
+  <p>
+    Bienvenido al perfil oficial de <b>LoC0o</b>. 
+    Aquí encontrarás <u>diseños exclusivos</u> y 
+    <span class="highlight">Edición Symbionte</span>. 
+    <i>"Quédate donde todo sea mutuo."</i>
+  </p>
+</div>
+
+
+--------------------------------------------------------------------
+3. DICCIONARIO RÁPIDO DE COLORES (Para editar a tu gusto)
+--------------------------------------------------------------------
+- Rojo Neón Brillante : #ff1e56
+- Burdeos Oscuro      : #591632
+- Rosa Pálido Texto   : #e0a3bc
+- Gris Rosado Base    : #9e8a90
+- Blanco Puro         : #ffffff
+====================================================================
