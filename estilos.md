@@ -1,4 +1,4 @@
-# Guía Visual de Textos (Edición Symbionte)
+# Textos
 
 Text Regular - **Bold** - *Italic* - <ins>Underline</ins> - ~~Strike (Tachado por medio)~~ - <mark>Highlight</mark> - `Type`
 
